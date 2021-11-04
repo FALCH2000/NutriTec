@@ -4,57 +4,132 @@
 </mat-toolbar>
 
 <mat-card class="registroCard">
-    <mat-grid-list cols="4" rowHeight="50px">
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-            <mat-form-field appearance="fill">
-                <mat-label>Primer Nombre</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-grid-tile>
+<mat-stepper class="registroCard" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="datosPersonalesForm">
+      <form [formGroup]="datosPersonalesForm">
+        <ng-template matStepLabel>Datos Personales</ng-template>
+        <mat-grid-list cols="4" rowHeight="50px">
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Primer Nombre</mat-label>
+                    <input matInput placeholder="Primer Nombre" formControlName="nombre1" required>
+                </mat-form-field>
+            </mat-grid-tile>
+    
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Segundo Nombre</mat-label>
+                    <input matInput placeholder="Segundo Nombre" formControlName="nombre2" required>
+                </mat-form-field>
+            </mat-grid-tile>
+    
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Primer Apellido</mat-label>
+                    <input matInput placeholder="Primer Apellido" formControlName="apellido1" required>
+                </mat-form-field>
+            </mat-grid-tile>
+    
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label> Segundo Apellido</mat-label>
+                    <input matInput placeholder="Segundo Apellido" formControlName="apellido2" required>
+                </mat-form-field>
+            </mat-grid-tile>
+    
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Cedula</mat-label>
+                    <input matInput placeholder="Cedula" formControlName="cedula" required>
+                </mat-form-field>
+            </mat-grid-tile>
+    
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Codigo de Nutricionista</mat-label>
+                    <input matInput placeholder="Codigo de Nutricionista" formControlName="codigo_nutricionista" required>
+                </mat-form-field>
+            </mat-grid-tile>
+    
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Direccion</mat-label>
+                    <input matInput placeholder="Direccion" formControlName="direccion" required>
+                </mat-form-field>
+            </mat-grid-tile>
+            
+        </mat-grid-list>
+      </form>
+    </mat-step>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-            <mat-form-field appearance="fill">
-                <mat-label>Segundo Nombre</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-grid-tile>
+    <mat-step [stepControl]="datosPagoForm" label="Informacion de Pago">
+      <form [formGroup]="datosPagoForm">
+        <mat-grid-list cols="4" rowHeight="50px">
 
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-            <mat-form-field appearance="fill">
-                <mat-label>Primer Apellido</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Numero de Tarjeta</mat-label>
+                    <input matInput placeholder="Primer Nombre" formControlName="numeroTarjeta" required>
+                </mat-form-field>
+            </mat-grid-tile>
+    
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Tipo de Pago</mat-label>
+                    <mat-select>
+                        <mat-option value="semanal">Semanal</mat-option>
+                        <mat-option value="mensual">Mensual</mat-option>
+                        <mat-option value="anual">Anual</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-            <mat-form-field appearance="fill">
-                <mat-label> Segundo Apellido</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-grid-tile>
+        </mat-grid-list>
+      </form>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-            <mat-form-field appearance="fill">
-                <mat-label>Cedula</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-grid-tile>
+    </mat-step>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-            <mat-form-field appearance="fill">
-                <mat-label>Codigo de Nutricionista</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-            <mat-form-field appearance="fill">
-                <mat-label>Direccion</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-grid-tile>
-        
-    </mat-grid-list>
+    <mat-step [stepControl]="datosAccesoForm" label="Informacion de Acceso">
+        <form [formGroup]="datosAccesoForm">
+          <mat-grid-list cols="4" rowHeight="50px">
+  
+            <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label> Correo Electronico</mat-label>
+                    <input matInput placeholder="Correo Electronico" formControlName="email" required>
+                </mat-form-field>
+            </mat-grid-tile>
+      
+                
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                   <mat-label>Contraseña</mat-label>
+                   <input matInput placeholder="Contraseña" formControlName="pass" required>
+                </mat-form-field>
+            </mat-grid-tile>
+  
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Confirme su Contraseña</mat-label>
+                    <input matInput placeholder="Confirme su Contraseña" formControlName="passConfirmacion" required>
+                </mat-form-field>
+            </mat-grid-tile>
+  
+          </mat-grid-list>
+        </form>
+  
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+      </mat-step>
+
+</mat-stepper>
+  
+
+
+    
 </mat-card>
 
 </body>
