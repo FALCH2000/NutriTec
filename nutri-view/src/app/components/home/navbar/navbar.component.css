@@ -1,0 +1,9 @@
+.example-spacer {
+    flex: 1 1 auto;
+ }
+
+ 
+.tolbar {
+    background: burlywood;
+    color:beige;
+}
