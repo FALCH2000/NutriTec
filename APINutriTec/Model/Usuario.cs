@@ -12,7 +12,7 @@ namespace APINutriTec.Model
         public string apellido1 { get; set; }
         public string apellido2 { get; set; }
         public int cedula { get; set; }
-        public DateTime fecha_de_nacimiento { get; set; }
+        public string fecha_de_nacimiento { get; set; }
         public int edad { get; set; }
         public string codigo_nutricionista { get; set; }
         public string pass { get; set; }
