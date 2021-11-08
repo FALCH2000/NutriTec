@@ -23,7 +23,7 @@ namespace APINutriTec.Controllers
         }
 
         [HttpGet]
-        // Get: api/usuario
+        // Get: api/usuario todos los usuarios
 
         public List<Usuario> Get()
         {
@@ -71,6 +71,7 @@ namespace APINutriTec.Controllers
             return nutricionistas;
         }
 
+        //un usuario por codigo
         [HttpGet("nutri/{codigo}")]
         public Usuario GetNutri(string codigo)
         {
@@ -115,6 +116,7 @@ namespace APINutriTec.Controllers
             return nut;
         }
 
+        //ingersa usuario
         [HttpPost("insert")]
         public async Task<IActionResult> CreateUsuario([FromBody] Usuario user)
         {
@@ -149,29 +151,57 @@ namespace APINutriTec.Controllers
             sqlCmd.Parameters.Add("@foto", SqlDbType.VarChar, 20).Value = user.foto;
             sqlCmd.Connection = myConnection;
             myConnection.Open();
+            var created = sqlCmd.ExecuteNonQuery();
+            myConnection.Close();
+
+
+            return Created("created",created);
+        }
+
+        //elimina usuario
+        [HttpDelete("delete/{codigo}")]
+        public async Task<IActionResult> DeleteUsuario(string codigo)
+        {
+            if (codigo == null)
+
+                return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            SqlConnection myConnection = new SqlConnection();
+
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "DeleteUsuario";
+            sqlCmd.Parameters.Add("@Codigo", SqlDbType.VarChar, 20).Value = codigo;
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
             sqlCmd.ExecuteNonQuery();
             myConnection.Close();
 
 
-            return Created("created",1);
+            return NoContent();
         }
 
-        [HttpGet("validar/{user}/{pwd}")]
-        public async Task<bool> Validacion(string user, string pwd)
+        //login usuario
+        [HttpGet("validarUsuario/{user}/{pwd}/{rol}")]
+        public async Task<bool> ValidacionLoginUsuario(string user, string pwd, string rol)
         {
             SqlConnection myConnection = new SqlConnection(cadenaConexion);
 
-
-            // myConnection.ConnectionString = cadenaConexion;
 
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.Connection = myConnection;
 
 
             sqlCmd.CommandType = System.Data.CommandType.StoredProcedure;
-            sqlCmd.CommandText = "GetValidarLogin";
+            sqlCmd.CommandText = "GetValidarLoginRol";
             sqlCmd.Parameters.AddWithValue("@User", user);
             sqlCmd.Parameters.AddWithValue("@pass", Encriptar(pwd));
+            sqlCmd.Parameters.AddWithValue("@rol", rol);
             sqlCmd.Parameters.Add("@Return", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             myConnection.Open();
@@ -198,9 +228,7 @@ namespace APINutriTec.Controllers
 
 
         }
-
-
-
+        //md5
         public static string Encriptar(string texto)
         {
             string key = "mikey";

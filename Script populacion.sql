@@ -149,7 +149,7 @@ VALUES(getdate(), 72, 55, 31, 73, 27, 24, 105432783);
 INSERT INTO plan_alimentacion(nombre, desayuno,merienda_manana, almuerzo, cena, merienda_tarde, nutricionista) 
 VALUES('Aumento Masa Muscular', '2 proteinas, 2 carbohidratos, 1 fruta, 1 grasa',
        '1 carbohidratos, 1 fruta', '2 proteinas, 2 carbohidratos, 2 vegetales, 1 fruta, 1 grasa',
-      '2 proteinas, 2 carbohidratos, 1 vegetal, 1 grasa', '1 fruta, 1 carbohidrato', 'N0001');
+      '2 proteinas, 2 carbohidratos, 1 vegetal, 1 grasa', '1 fruta, 1 carbohidrato', 'N0002');
 
 INSERT INTO plan_alimentacion(nombre, desayuno,merienda_manana, almuerzo, cena, merienda_tarde, nutricionista) 
 VALUES('Disminucion Grasa', '1 proteinas, 3 carbohidratos, 2 fruta, 1 grasa',
@@ -171,15 +171,15 @@ VALUES('Lactancia', '3 proteinas, 4 carbohidratos, 2 fruta, 1 grasa',
        '2 carbohidratos, 2 fruta', '3 proteinas, 3 carbohidratos, 2 vegetales, 1 fruta, 2 grasa',
       '2 proteinas, 2 carbohidratos, 1 vegetal, 1 grasa', '2 fruta, 2 carbohidratos', 'N0005');
 
----Insert de recetas
-INSERT INTO Receta(nombre, calorias, carbohidratos, grasa, sodio, proteina, hierro, tamano_porcion, calcio) 
-VALUES('Gallo Pinto', 314, 36, 15, 1, 8, 5, 300, 13);
+--Insert de recetas
+INSERT INTO Receta(nombre, calorias, carbohidratos, grasa, sodio, proteina, hierro, tamano_porcion, calcio,cedula_paciente) 
+VALUES('Gallo Pinto', 314, 36, 15, 1, 8, 5, 300, 13,303360333);
 
-INSERT INTO Receta(nombre, calorias, carbohidratos, grasa, sodio, proteina, hierro, tamano_porcion, calcio) 
-VALUES('Postre De Frutas', 214, 26, 13, 2, 3, 4, 200, 10);
+INSERT INTO Receta(nombre, calorias, carbohidratos, grasa, sodio, proteina, hierro, tamano_porcion, calcio,cedula_paciente) 
+VALUES('Postre De Frutas', 214, 26, 13, 2, 3, 4, 200, 10,102221223);
 
-INSERT INTO Receta(nombre, calorias, carbohidratos, grasa, sodio, proteina, hierro, tamano_porcion, calcio) 
-VALUES('Yogurt gustoso', 114, 22, 11, 4, 2, 6, 250, 7);
+INSERT INTO Receta(nombre, calorias, carbohidratos, grasa, sodio, proteina, hierro, tamano_porcion, calcio,cedula_paciente) 
+VALUES('Yogurt gustoso', 114, 22, 11, 4, 2, 6, 250, 7,303360333);
 
 --Insert productos por recetas
 INSERT INTO Producto_por_receta(codigo_barras, nombre_receta) 
@@ -201,18 +201,18 @@ VALUES('NBA12345678','Yogurt gustoso');
 INSERT INTO plan_por_paciente(cedula, nombre_plan, periodo_inicio, periodo_fin)
 VALUES(303360333, 'Aumento Masa Muscular', '02-13-2020', '12-03-2021');
 INSERT INTO plan_por_paciente(cedula, nombre_plan, periodo_inicio, periodo_fin)
-VALUES(104411333, 'Disminucion Grasa', '02-03-2021', '24-06-2022');
+VALUES(104411333, 'Disminucion Grasa', '02-03-2021', '06-24-2022');
 INSERT INTO plan_por_paciente(cedula, nombre_plan, periodo_inicio, periodo_fin)
-VALUES(102341234, 'Lactancia', '06-25-2021', '24-07-2023');
+VALUES(102341234, 'Lactancia', '06-25-2021', '07-24-2023');
 INSERT INTO plan_por_paciente(cedula, nombre_plan, periodo_inicio, periodo_fin)
-VALUES(105432783, 'Diabetico 1', '02-25-2021', '21-11-2024');
+VALUES(105432783, 'Diabetico 1', '02-25-2021', '11-21-2024');
 INSERT INTO plan_por_paciente(cedula, nombre_plan, periodo_inicio, periodo_fin)
-VALUES(102222345, 'Deportista Alto Rendimiento', '01-05-2020', '21-12-2021');
+VALUES(102222345, 'Deportista Alto Rendimiento', '01-05-2020', '12-21-2021');
 INSERT INTO plan_por_paciente(cedula, nombre_plan, periodo_inicio, periodo_fin)
-VALUES(302220983, 'Aumento Masa Muscular', '03-06-2021', '01-04-2022');
+VALUES(302220983, 'Aumento Masa Muscular', '03-06-2021', '04-01-2022');
 
 
---Insert de las vitaminas
+--Insert de las vitaminas por cada producto
 INSERT INTO vitaminas_por_producto(vitamina,codigo_barras)
 VALUES ('A','CVA02092000');
 INSERT INTO vitaminas_por_producto(vitamina,codigo_barras)
@@ -355,11 +355,12 @@ VALUES ('NWN6789041','Lactancia');
 insert into producto_por_plan (codigo_barras, nombre_plan)
 VALUES ('AFG1165478','Disminucion Grasa');
 
+--Insert de los consumos diarios
 INSERT INTO ConsumoDiario(fecha, almuerzo, cena, desayuno, merienda_m, merienda_t, consumo_calorias, cedula_paciente)
-VALUES('12-04-2021', '2 proteinas, 2 carbohidratos, 1 fruta, 1 grasa', '2 proteinas, 2 carbohidratos, 2 vegetales, 1 fruta, 1 grasa', '2 proteinas, 2 carbohidratos, 1 vegetal, 1 grasa', '1 fruta, 1 carbohidrato', '2 proteinas, 2 carbohidratos, 1 fruta, 1 grasa', 250, 303360333);
+VALUES('04-12-2021', '2 proteinas, 2 carbohidratos, 1 fruta, 1 grasa', '2 proteinas, 2 carbohidratos, 2 vegetales, 1 fruta, 1 grasa', '2 proteinas, 2 carbohidratos, 1 vegetal, 1 grasa', '1 fruta, 1 carbohidrato', '2 proteinas, 2 carbohidratos, 1 fruta, 1 grasa', 250, 303360333);
 
 INSERT INTO ConsumoDiario(fecha, almuerzo, cena, desayuno, merienda_m, merienda_t, consumo_calorias, cedula_paciente)
-VALUES('13-10-2021', '3 carbohidrato,  fruta', '2 proteinas, 2 carbohidratos, 2 vegetales, 1 fruta, 1 grasa',  '2 proteinas, 3 carbohidratos, 1 vegetal, 1 grasa', '2 fruta, 1 carbohidrato', '2 proteinas, 2 carbohidratos, 2 vegetales, 1 fruta, 1 grasa',300, 104411333);
+VALUES('10-13-2021', '3 carbohidrato,  fruta', '2 proteinas, 2 carbohidratos, 2 vegetales, 1 fruta, 1 grasa',  '2 proteinas, 3 carbohidratos, 1 vegetal, 1 grasa', '2 fruta, 1 carbohidrato', '2 proteinas, 2 carbohidratos, 2 vegetales, 1 fruta, 1 grasa',300, 104411333);
 
 INSERT INTO ConsumoDiario(fecha, almuerzo, cena, desayuno, merienda_m, merienda_t, consumo_calorias, cedula_paciente)
-VALUES('13-10-2021', '3 proteinas, 4 carbohidratos, 2 fruta, 1 grasa', '1 carbohidratos, 2 fruta', '3 proteinas, 3 carbohidratos, 2 vegetales, 1 fruta, 2 grasa', '2 proteinas, 2 carbohidratos, 1 vegetal, 1 grasa', '1 fruta, 2 carbohidratos',240, 102222345); 
+VALUES('10-13-2021', '3 proteinas, 4 carbohidratos, 2 fruta, 1 grasa', '1 carbohidratos, 2 fruta', '3 proteinas, 3 carbohidratos, 2 vegetales, 1 fruta, 2 grasa', '2 proteinas, 2 carbohidratos, 1 vegetal, 1 grasa', '1 fruta, 2 carbohidratos',240, 102222345); 

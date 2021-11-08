@@ -103,3 +103,41 @@ ELSE IF @encontrado = 0
     Begin
          set @Return = 0
     End
+
+--Store procedure para eliminar usuarios
+CREATE PROCEDURE DeleteUsuario(@Codigo VARCHAR(20))
+AS
+	BEGIN
+		DELETE FROM Usuario
+		WHERE @Codigo = codigo_nutricionista
+	END
+GO
+
+--Store procedure de validacion con Rol 
+CREATE PROCEDURE GetValidarLoginRol (@User VARCHAR(60), @pass VARCHAR(100), @rol VARCHAR(100), @Return int output)
+
+AS
+Declare @encontrado INT
+    BEGIN 
+        SELECT @encontrado = COUNT(*) FROM Usuario
+        WHERE @User = email AND @pass = pass AND @rol = rol
+    END
+
+
+if @encontrado = 1
+    Begin
+         set @Return = 1
+     End
+ELSE IF @encontrado = 0
+    Begin
+         set @Return = 0
+    End
+
+--Store procedure para obtener todos los planes creados por un nutricionista
+CREATE PROCEDURE GetPlanesDeNutri(@Codigo VARCHAR(20))
+AS
+	BEGIN
+		SELECT * FROM Plan_Alimentacion
+		WHERE nutricionista = @Codigo
+	END
+G
