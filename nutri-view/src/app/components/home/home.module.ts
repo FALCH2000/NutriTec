@@ -8,6 +8,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ProductosComponent } from './productos/productos.component';
 import { PlanesComponent } from './planes/planes.component';
 import { SharedModule } from '../shared/shared.module';
+import { CrearPlanComponent } from './planes/crear-plan/crear-plan.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SharedModule } from '../shared/shared.module';
     NavbarComponent,
     InicioComponent,
     ProductosComponent,
-    PlanesComponent
+    PlanesComponent,
+    CrearPlanComponent
   ],
   imports: [
     CommonModule,

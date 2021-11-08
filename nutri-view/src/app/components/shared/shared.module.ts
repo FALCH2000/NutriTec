@@ -12,10 +12,15 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [],
   imports: [
+    HttpClientModule,
     CommonModule,
     MatSliderModule,
     MatCardModule,
@@ -27,10 +32,12 @@ import { MatButtonModule } from '@angular/material/button';
     MatStepperModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
 
   exports: [
+    HttpClientModule,
     CommonModule,
     MatSliderModule,
     MatCardModule,
@@ -42,7 +49,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatStepperModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ]
 })
 export class SharedModule { }

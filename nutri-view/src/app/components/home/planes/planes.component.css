@@ -1,0 +1,9 @@
+.tolbar{
+    background: beige;
+    margin-top: 10px;
+    color:forestgreen;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+ }
