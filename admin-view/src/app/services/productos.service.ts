@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class PlanesService {
+export class ProductosService {
+
   public url: string;
 
   constructor(public _http: HttpClient
@@ -14,10 +16,8 @@ export class PlanesService {
   }
 
 
-
-  getPlanes(): Observable<any> {
-    return this._http.get(this.url + 'api/planes/nut/N0002');
+  getProductos(): Observable<any> {
+    return this._http.get(this.url + 'api/producto');
   }
-
 
 }
