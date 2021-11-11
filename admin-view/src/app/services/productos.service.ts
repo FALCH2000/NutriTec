@@ -16,7 +16,8 @@ export class ProductosService {
   }
 
 
-  updateEmpleado(dataProducto: Object, codigo: string, estado: string): Observable<any>{
+  updateProducto(dataProducto: Object, codigo: string, estado: string): Observable<any>{
+    console.log(this.url+'api/producto/aprovacion/'+codigo+'/'+estado, dataProducto)
     return this._http.put(this.url+'api/producto/aprovacion/'+codigo+'/'+estado, dataProducto);
   }
 

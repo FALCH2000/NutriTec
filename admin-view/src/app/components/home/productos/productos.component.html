@@ -38,12 +38,14 @@
               <a *ngIf="titulo == 'Productos en Espera'" 
                     class="pointer"  style="color:
                    green;" matTooltip="Editar Empleado">
-                  <button (click)="actualizarProducto(element.codigo_de_barras, element.estado)" mat-button>APROBAR</button>
+                  <button (click)="actualizarProducto(element.codigo_de_barras, element.estado)" 
+                  mat-button>APROBAR</button>
               </a>
               <a *ngIf="titulo == 'Productos Aprobados'" class="pointer"  
                     style="color: indianred;" 
                     matTooltip="Eliminar Empleado">
-                    <button mat-button>ESPERA</button>
+                    <button (click)="actualizarProducto(element.codigo_de_barras, element.estado)"
+                     mat-button>ESPERA</button>
               </a>
           </td>
       </ng-container>

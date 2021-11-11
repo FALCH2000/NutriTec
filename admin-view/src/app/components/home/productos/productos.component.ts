@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductosService } from 'src/app/services/productos.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-productos',
@@ -54,6 +55,25 @@ export class ProductosComponent implements OnInit {
 
   actualizarProducto(codigo: string, estado: string){
     console.log(codigo + "  " + estado)
+    for( var i = 0; i < this.listProductos.length ; i++){
+      if( this.listProductos[i].codigo_de_barras == codigo ){
+        if ( estado == 'aprobado'){
+          this.listProductos[i].estado = 'en espera'
+          console.log(this.listProductos[i])
+          this._productosService.updateProducto(this.listProductos[i], codigo, 'en espera').subscribe(data => {
+            console.log(data);
+          });
+        }else{
+          this.listProductos[i].estado = 'aprobado'
+          console.log(this.listProductos[i])
+          this._productosService.updateProducto(this.listProductos[i], codigo, 'aprobado').subscribe(data => {
+            console.log(data);
+          });
+        }
+      }else{
+        console.log("EL PRODUCTO NO EXISTE")
+      }
+    }
   }
 
   cargarProductos(){
