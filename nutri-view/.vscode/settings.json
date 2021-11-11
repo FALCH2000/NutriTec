@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/6f021f3e-e6b9-4ba3-a033-92091f29765b/resourceGroups/Bases-Datos/providers/Microsoft.Web/sites/Nutri-view",
+    "appService.deploySubpath": "."
+}
