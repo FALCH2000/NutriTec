@@ -17,8 +17,8 @@ export class ProductosComponent implements OnInit {
   listEspera: any[] = [];
   displayedColumns: string[] = ['codigo_de_barras', 'descripcion', 'tamano_porcion', 'acciones'];
   dataSource!: MatTableDataSource<any>;
-  
-  
+
+
 
   constructor(
     private _productosService: ProductosService
@@ -54,24 +54,19 @@ export class ProductosComponent implements OnInit {
   }
 
   actualizarProducto(codigo: string, estado: string){
-    console.log(codigo + "  " + estado)
     for( var i = 0; i < this.listProductos.length ; i++){
       if( this.listProductos[i].codigo_de_barras == codigo ){
         if ( estado == 'aprobado'){
           this.listProductos[i].estado = 'en espera'
-          console.log(this.listProductos[i])
           this._productosService.updateProducto(this.listProductos[i], codigo, 'en espera').subscribe(data => {
-            console.log(data);
+            console.log("DONE");
           });
         }else{
           this.listProductos[i].estado = 'aprobado'
-          console.log(this.listProductos[i])
           this._productosService.updateProducto(this.listProductos[i], codigo, 'aprobado').subscribe(data => {
-            console.log(data);
+            console.log("DONE");
           });
         }
-      }else{
-        console.log("EL PRODUCTO NO EXISTE")
       }
     }
   }
@@ -85,7 +80,7 @@ export class ProductosComponent implements OnInit {
           this.listProductos.push({codigo_de_barras:result[i].codigo_de_barras,
                                   descripcion:result[i].descripcion, tamano_porcion: result[i].tamano_porcion,
                                   energia:result[i].energia, grasa:result[i].grasa, sodio:result[i].sodio,
-                                  carbohidrato:result[i].carbohidrato, proteina:result[i].proteina, 
+                                  carbohidrato:result[i].carbohidrato, proteina:result[i].proteina,
                                   calcio:result[i].calcio, hierro:result[i].hierro,
                                   estado:result[i].estado});
           i++;

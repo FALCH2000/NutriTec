@@ -12,7 +12,7 @@ export class ProductosService {
 
   constructor(public _http: HttpClient
     ){
-      this.url = "http://nutritecapi.azurewebsites.net/"
+      this.url = "https://nutritecapi.azurewebsites.net/"
   }
 
 
