@@ -36,4 +36,26 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  registrarNutricionista(){
+    const nutricionista: Object =
+    {
+      nombre1: this.datosPersonalesForm.value.nombre1,
+      nombre2: this.datosPersonalesForm.value.nombre2,
+      apellido1: this.datosPersonalesForm.value.apellido1,
+      apellido2: this.datosPersonalesForm.value.apellido2,
+      cedula: Number(this.datosPersonalesForm.value.cedula),
+      fecha_de_nacimiento: "9/8/1990 12:00:00 AM",
+      edad: 22,
+      codigo_nutricionista: this.datosPersonalesForm.value.codigo_nutricionista,
+      pass: this.datosAccesoForm.value.pass,
+      email: this.datosAccesoForm.value.email,
+      numero_tarjeta: Number(this.datosPagoForm.value.numeroTarjeta),
+      tipo_cobro: this.datosAccesoForm.value.tipoPago,
+      rol: "Nutricionista",
+      direccion: this.datosPersonalesForm.value.direccion,
+      foto: "url"
+    }
+    console.log(nutricionista)
+  }
+
 }
