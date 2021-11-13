@@ -7,3 +7,18 @@
 .example-spacer {
     flex: 1 1 auto;
  }
+
+ table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.sectionTitle{
+  margin-top: 10px;
+  color: slateblue;
+}

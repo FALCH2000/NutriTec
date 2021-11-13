@@ -12,7 +12,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 export class PlanesComponent implements OnInit {
 
   planesList: any[] = [];
-  displayedColumns: string[] = ['nombre', 'nutricionista'];
+  displayedColumns: string[] = ['nombre', 'nutricionista', 'acciones'];
   dataSource!: MatTableDataSource<any>;
 
   constructor(

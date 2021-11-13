@@ -1,5 +1,43 @@
+<div class="container">
+
 <mat-toolbar class="tolbar">
     <span>Planes de Alimentacion</span>
-    <button mat-button routerLink="/home/planes/crear-plan">Nuevo Plan</button>
+    <button mat-button routerLink="/home/planes/crear-plan">CREAR PLAN</button>
 </mat-toolbar>
 
+<div class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nutricionista">
+    <th mat-header-cell *matHeaderCellDef> No Cedula </th>
+    <td mat-cell *matCellDef="let element"> {{element.nutricionista}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
+        <a class="pointer" style="color: deepskyblue;" matTooltip="Editar Empleado">
+            <mat-icon>edit</mat-icon>
+        </a>
+        <a class="pointer" style="color: indianred;" matTooltip="Eliminar Empleado">
+            <mat-icon>delete</mat-icon>
+        </a>
+    </td>
+</ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+</div>
+
+</div>
