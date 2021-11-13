@@ -9,6 +9,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { PlanesComponent } from './planes/planes.component';
 import { SharedModule } from '../shared/shared.module';
 import { CrearPlanComponent } from './planes/crear-plan/crear-plan.component';
+import { AgregarProductoComponent } from './productos/agregar-producto/agregar-producto.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CrearPlanComponent } from './planes/crear-plan/crear-plan.component';
     InicioComponent,
     ProductosComponent,
     PlanesComponent,
-    CrearPlanComponent
+    CrearPlanComponent,
+    AgregarProductoComponent
   ],
   imports: [
     CommonModule,

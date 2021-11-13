@@ -22,8 +22,12 @@ export class ProductosService {
   }
 
   getProductos(): Observable<any> {
-    console.log(this.url + 'api/producto')
     return this._http.get(this.url + 'api/producto');
+  }
+
+  getProductosByCodigo(codigo: string): Observable<any> {
+    console.log(this.url + 'api/producto/pdto/'+codigo)
+    return this._http.get(this.url + 'api/producto/pdto/'+codigo);
   }
 
 }

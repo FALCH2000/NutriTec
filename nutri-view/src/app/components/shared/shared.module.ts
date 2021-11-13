@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -33,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
 
   exports: [
@@ -50,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

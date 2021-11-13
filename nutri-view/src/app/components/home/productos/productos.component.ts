@@ -45,4 +45,11 @@ export class ProductosComponent implements OnInit {
       });
   }
 
+  verProducto(codigo_de_barras: string){
+    console.log(codigo_de_barras)
+    this._productosService.getProductosByCodigo(codigo_de_barras).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 }

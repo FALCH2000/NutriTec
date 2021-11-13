@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { PlanesService } from 'src/app/services/planes.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-planes',
@@ -9,14 +10,14 @@ import { MatTableDataSource } from '@angular/material/table';
   providers: [PlanesService]
 })
 export class PlanesComponent implements OnInit {
-  
-  planesList: any[] = [];
 
+  planesList: any[] = [];
   displayedColumns: string[] = ['nombre', 'nutricionista'];
   dataSource!: MatTableDataSource<any>;
 
   constructor(
-    private _planesService: PlanesService
+    private _planesService: PlanesService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -41,3 +42,6 @@ export class PlanesComponent implements OnInit {
       });
   }
 }
+
+
+
