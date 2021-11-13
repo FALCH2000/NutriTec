@@ -1,0 +1,124 @@
+<body>
+  <mat-toolbar class="tolbar">
+      <h1>Registro de Usuarios</h1>
+  </mat-toolbar>
+
+  <mat-card class="registroCard">
+  <mat-stepper class="registroCard" [linear]="isLinear" #stepper>
+
+    <mat-step [stepControl]="datosPersonalesForm">
+
+        <form [formGroup]="datosPersonalesForm" >
+
+          <ng-template matStepLabel>Datos Personales</ng-template>
+          <mat-grid-list cols="4" rowHeight="50px">
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                      <mat-label>Primer Nombre</mat-label>
+                      <input matInput placeholder="Primer Nombre" formControlName="nombre1" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                      <mat-label>Segundo Nombre</mat-label>
+                      <input matInput placeholder="Segundo Nombre" formControlName="nombre2" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                      <mat-label>Primer Apellido</mat-label>
+                      <input matInput placeholder="Primer Apellido" formControlName="apellido1" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                      <mat-label> Segundo Apellido</mat-label>
+                      <input matInput placeholder="Segundo Apellido" formControlName="apellido2" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                      <mat-label>Cedula</mat-label>
+                      <input matInput placeholder="Cedula" formControlName="cedula" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                      <mat-label>País</mat-label>
+                      <input matInput placeholder="pais" formControlName="pais" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+          </mat-grid-list>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="datosPesoForm" label="Información Corporal">
+        <form [formGroup]="datosPesoForm">
+          <mat-grid-list cols="4" rowHeight="50px">
+
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                      <mat-label>Peso</mat-label>
+                      <input matInput placeholder="Peso(Kg)" formControlName="peso" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                <mat-form-field appearance="fill">
+                    <mat-label>IMC</mat-label>
+                    <input matInput placeholder="IMC" formControlName="imc" required>
+                </mat-form-field>
+              </mat-grid-tile>
+
+          </mat-grid-list>
+        </form>
+
+      </mat-step>
+
+
+      <mat-step [stepControl]="datosAccesoForm" label="Informacion de Acceso">
+          <form [formGroup]="datosAccesoForm">
+            <mat-grid-list cols="4" rowHeight="50px">
+
+              <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                      <mat-label> Correo Electronico</mat-label>
+                      <input matInput placeholder="Correo Electronico" formControlName="email" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+
+                <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                     <mat-label>Contraseña</mat-label>
+                     <input matInput placeholder="Contraseña" formControlName="pass" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="2">
+                  <mat-form-field appearance="fill">
+                      <mat-label>Confirme su Contraseña</mat-label>
+                      <input matInput placeholder="Confirme su Contraseña" formControlName="passConfirmacion" required>
+                  </mat-form-field>
+              </mat-grid-tile>
+
+            </mat-grid-list>
+          </form>
+
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Finalizado</ng-template>
+          <p>Completado. Desea proceder con el Registro de su Usuario?</p>
+          <button (click)="registrarUsuario()" mat-raised-button>GUARDAR</button>
+        </mat-step>
+  </mat-stepper>
+
+  </mat-card>
+
+  </body>
