@@ -23,8 +23,16 @@
               
                 <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
                 <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+              </mat-form-field> 
+              <mat-divider></mat-divider>
+              <mat-form-field appearance="fill">
+                <mat-label>Select</mat-label>
+                <mat-select>
+                  <mat-option value="one" *ngFor="let value of pacientesList">{{value}}</mat-option>
+                </mat-select>
               </mat-form-field>
-              
+              <mat-divider></mat-divider>
+              <button type="button" class="btn btn-outline-success btn-lg btn-block">Asignar plan</button>
         </div>
     </div>
 </body>

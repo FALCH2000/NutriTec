@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -42,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDividerModule
   ],
 
   exports: [
@@ -63,7 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDividerModule
   ]
 })
 export class SharedModule { }
