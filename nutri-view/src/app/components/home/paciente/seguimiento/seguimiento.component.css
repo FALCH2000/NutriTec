@@ -1,0 +1,28 @@
+body{
+    background-color: #f5e3c8;
+    width: auto;
+    margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  max-height: 500%;
+    
+}
+
+.info-container{
+    
+    margin-top: 40px;
+    background-color: #EAEAEA;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    flex-direction: column;
+}
+
+.button-container{
+    position: absolute;
+    margin-top: -80px;
+    margin-left: 380px;
+}
+
+.textarea {
+    width: 350px;
+    margin-left: 20px;
+}
