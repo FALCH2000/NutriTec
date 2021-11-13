@@ -1,0 +1,18 @@
+body{
+    background-color: #f5e3c8;
+}
+.container{
+    padding-top: 20px;
+      
+}
+.main-container{
+    background-color: black; 
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.mat-container{
+    margin-top: 50px; 
+}
+.mat-accordion{
+    width: 100px;
+}

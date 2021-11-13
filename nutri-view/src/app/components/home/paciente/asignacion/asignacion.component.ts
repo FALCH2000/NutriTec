@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-asignacion',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./asignacion.component.css']
 })
 export class AsignacionComponent implements OnInit {
-
-  constructor() { }
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
+  constructor() {}
 
   ngOnInit(): void {
   }
