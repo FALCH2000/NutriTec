@@ -6,6 +6,10 @@ import { CrearPlanComponent } from './planes/crear-plan/crear-plan.component';
 import { PlanesComponent } from './planes/planes.component';
 import { AgregarProductoComponent } from './productos/agregar-producto/agregar-producto.component';
 import { ProductosComponent } from './productos/productos.component';
+import { AsociacionComponent } from './paciente/asociacion/asociacion.component';
+import { AsignacionComponent } from './paciente/asignacion/asignacion.component';
+import { SeguimientoComponent } from './paciente/seguimiento/seguimiento.component';
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent, children:[
@@ -14,6 +18,9 @@ const routes: Routes = [
     { path: 'productos', component:  ProductosComponent},
     { path: 'planes/crear-plan', component:  CrearPlanComponent},
     { path: 'productos/agregar-producto', component:  AgregarProductoComponent},
+    {path: 'paciente/asociacion', component: AsociacionComponent},
+    {path: 'paciente/asignacion', component: AsignacionComponent},
+    {path: 'paciente/seguimiento', component: SeguimientoComponent}
   ]},
 
 ];
