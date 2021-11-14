@@ -1,0 +1,92 @@
+<div class="container">
+  <mat-toolbar class="sectionTitle">
+      <span>{{titulo}}</span>
+  </mat-toolbar>
+
+
+<mat-card style="margin-top: 10px;">
+  <form [formGroup]="form" (ngSubmit)="agregarProducto()">
+      <mat-grid-list cols="4" rowHeight="50px">
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Código de Barras</mat-label>
+                  <input matInput autocomplete="off" formControlName="codigo_de_barras">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Descripción</mat-label>
+                  <input matInput autocomplete="off" formControlName="descripcion">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Tamaño de Porción (g)</mat-label>
+                  <input matInput autocomplete="off" formControlName="tamano_porcion">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Energía (kcal)</mat-label>
+                  <input matInput autocomplete="off" formControlName="energia">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+            <mat-form-field class="ancho">
+                <mat-label>Grasa (g)</mat-label>
+                <input matInput autocomplete="off" formControlName="grasa">
+              </mat-form-field>
+        </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Sodio(g)</mat-label>
+                  <input matInput autocomplete="off" formControlName="sodio">
+              </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Carbohidrato(g)</mat-label>
+                  <input matInput autocomplete="off" formControlName="carbohidrato">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2" >
+              <mat-form-field class="ancho">
+                  <mat-label>Proteína(g)</mat-label>
+                  <input matInput autocomplete="off" formControlName="proteina">
+                </mat-form-field>
+          </mat-grid-tile>
+
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Calcio(mg)</mat-label>
+                  <input matInput autocomplete="off" formControlName="calcio">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Hierro(mg)</mat-label>
+                  <input matInput autocomplete="off" formControlName="hierro">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">GUARDAR</button>
+              <button  routerLink="/home/productos" mat-raised-button>VOLVER</button>
+          </mat-grid-tile>
+
+      </mat-grid-list>
+
+  </form>
+</mat-card>
+
+</div>

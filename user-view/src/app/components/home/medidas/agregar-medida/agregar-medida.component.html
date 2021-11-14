@@ -1,0 +1,71 @@
+<div class="container">
+  <mat-toolbar class="sectionTitle">
+      <span>{{titulo}}</span>
+  </mat-toolbar>
+
+
+<mat-card style="margin-top: 10px;">
+  <form [formGroup]="form" (ngSubmit)="agregarMedida()">
+      <mat-grid-list cols="4" rowHeight="50px">
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Fecha de Ingreso</mat-label>
+                  <input matInput autocomplete="off" formControlName="fecha_ingreso">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Cadera</mat-label>
+                  <input matInput autocomplete="off" formControlName="cadera">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Cintura</mat-label>
+                  <input matInput autocomplete="off" formControlName="cintura">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Cuello</mat-label>
+                  <input matInput autocomplete="off" formControlName="cuello">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+            <mat-form-field class="ancho">
+                <mat-label>Peso(kg)</mat-label>
+                <input matInput autocomplete="off" formControlName="peso">
+              </mat-form-field>
+        </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Músculo</mat-label>
+                  <input matInput autocomplete="off" formControlName="musculo">
+              </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Grasa</mat-label>
+                  <input matInput autocomplete="off" formControlName="grasa">
+                </mat-form-field>
+          </mat-grid-tile>
+
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">GUARDAR</button>
+              <button  routerLink="/home/productos" mat-raised-button>VOLVER</button>
+          </mat-grid-tile>
+
+      </mat-grid-list>
+
+  </form>
+</mat-card>
+
+</div>
