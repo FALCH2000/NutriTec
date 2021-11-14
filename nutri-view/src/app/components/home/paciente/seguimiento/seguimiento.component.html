@@ -14,7 +14,7 @@
               <mat-form-field appearance="fill">
                 <mat-label>Seleccionar Paciente</mat-label>
                 <mat-select>
-                  <mat-option value="one" *ngFor="let value of pacientesList" (click)= uploadPaciente(value)>{{value}}</mat-option>
+                  <mat-option value="one" *ngFor="let value of pacientesList" (click)= uploadPaciente(value)>{{value.nombre}}</mat-option>
                 </mat-select>
               </mat-form-field>
               <mat-divider></mat-divider>
@@ -24,11 +24,25 @@
                   <mat-card-subtitle>Cedula paciente</mat-card-subtitle>
                 </mat-card-title-group>
                 <mat-card-content>
-                  <p>Aquí puede ir tipo el email</p>
-                  <p>Aquí puede ir el registro del mae</p>
-                  <p>Aquí puede ir el registro del mae</p>
                   
-                  
+                  <div class= "main-container">
+                    <mat-accordion class="mat-accordion">
+                    <mat-expansion-panel *ngFor="let value of registroList">
+                      <!-- Header del panel -->
+                        <mat-expansion-panel-header>
+                            <p id= 'fechaText'> Fecha: {{value.fecha}} </p> 
+                        </mat-expansion-panel-header>
+                      <!--Info dentro del panel-->
+                      <p>Fecha:  {{value.fecha}}</p>
+                      <p>Desayuno: {{value.desayuno}}</p>
+                      <p>Almuerzo: {{value.almuerzo}}</p>
+                      <p>Cena: {{value.cena}}</p>
+                      
+                      
+                    </mat-expansion-panel>
+                </mat-accordion>
+                </div>
+
                 </mat-card-content>
               </mat-card>
               <div *ngIf="displayUsuario">

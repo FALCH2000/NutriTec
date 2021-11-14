@@ -33,6 +33,7 @@ import { SeguimientoComponent } from './paciente/seguimiento/seguimiento.compone
     CommonModule,
     HomeRoutingModule,
     SharedModule
+    
   ]
 })
 export class HomeModule { }
