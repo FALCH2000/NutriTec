@@ -9,10 +9,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import tarea1.tec.proyecto2.Interfaces.LoginPacientesApi;
+
 
 public class LoginActivity extends AppCompatActivity {
 
-    static String BASEURL = "http://192.168.1.3:8081/";
+    static String BASEURL = "https://nutritecapi.azurewebsites.net/";
 
 
     @Override
@@ -24,56 +31,46 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void Ini_Principal(View view){
-        Intent principal = new Intent(this, Menu.class);
-        startActivity (principal);
+        EditText email = findViewById (R.id.username);
+        EditText pass = findViewById (R.id.password);
+        find (email.getText ().toString (), pass.getText ().toString ());
     }
 
+    private void find(String user, String pwd) {
+        EditText email = findViewById (R.id.username);
+        Retrofit retrofit = new Retrofit.Builder ().baseUrl ("https://nutritecapi.azurewebsites.net/")
+                .addConverterFactory (GsonConverterFactory.create ()).build ();
 
-/*
+        LoginPacientesApi LoginAPI = retrofit.create (LoginPacientesApi.class);
+        Call<Boolean> call = LoginAPI.find (user, pwd);
+        call.enqueue (new Callback<Boolean> () {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                try {
+                    if (response.isSuccessful ()) {
+                        Boolean m = response.body ();
+                        if (m == true) {
+                            Intent principal = new Intent (LoginActivity.this, Menu.class);
+                            principal.putExtra ("email", email.getText ().toString ());
+                            startActivity (principal);
+                        } else {
+                            Toast.makeText (LoginActivity.this, "Error de credenciales, favor intentar de nuevo", Toast.LENGTH_SHORT).show ();
 
-    public void VerificarUsuario(View view){
+                        }
+                    }
 
-
-        EditText UsuarioText = findViewById (R.id.username);
-
-        EditText PassText = findViewById (R.id.password);
-        final BaseDeDatos db = new BaseDeDatos (LoginActivity.this);
-        Cursor c = db.ObtenerCliente (String.valueOf(UsuarioText.getText ()));
-        String pass = "";
-        int cedula = 0;
-
-
-                if (c != null && c.moveToFirst()){
-        do{
-            pass = c.getString (7);
-            cedula = c.getInt (0);
-
-
-        }while (c.moveToNext ());
-
+                } catch (Exception ex) {
+                    Toast.makeText (LoginActivity.this, ex.getMessage (), Toast.LENGTH_SHORT).show ();
                 }
-
-        if(UsuarioText.getText ().toString ().equals ("") || PassText.getText ().toString ().equals ("")){
-            Toast.makeText(LoginActivity.this, "Debe rellenar ambos campos", Toast.LENGTH_SHORT).show();
-
-        }else{
-
-            if(String.valueOf(PassText.getText ()).equals (pass)){
-                Ini_Principal (cedula);
-            }else{
-                Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
             }
 
-        }
-
-
-
-
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                Toast.makeText (LoginActivity.this, "Error de conexion", Toast.LENGTH_SHORT).show ();
+            }
+        });
     }
 
-
-
-**/
 
 
 
