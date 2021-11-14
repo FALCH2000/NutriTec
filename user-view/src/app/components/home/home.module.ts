@@ -12,6 +12,7 @@ import { MedidasComponent } from './medidas/medidas.component';
 import { ConsumoComponent } from './consumo/consumo.component';
 import { AgregarConsumoComponent } from './consumo/agregar-consumo/agregar-consumo.component';
 import { AgregarMedidaComponent } from './medidas/agregar-medida/agregar-medida.component';
+import { RecetasComponent } from './recetas/recetas.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AgregarMedidaComponent } from './medidas/agregar-medida/agregar-medida.
     MedidasComponent,
     ConsumoComponent,
     AgregarConsumoComponent,
-    AgregarMedidaComponent
+    AgregarMedidaComponent,
+    RecetasComponent
   ],
   imports: [
     CommonModule,
