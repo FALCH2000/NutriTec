@@ -12,19 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto2">
         <activity
-            android:name=".Registro_Diario"
+            android:name=".VerRecetas"
             android:exported="true"
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Registro_Diario"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Gestion_Recetas"
             android:exported="true"
             android:noHistory="true"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Menu"
             android:exported="true"
-            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"

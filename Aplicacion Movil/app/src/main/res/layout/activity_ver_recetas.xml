@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerRecetas">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar4"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="#5BBA54"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="284dp"
+        android:layout_height="498dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar4">
+
+        <ListView
+            android:id="@+id/ListRec"
+            android:layout_width="282dp"
+            android:layout_height="496dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:background="#000000"
+        android:onClick="ATRAS"
+        android:text="Volver"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="120dp"
+        android:text="Recetas"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="30dp"
+        android:clickable="true"
+        android:onClick="NuevaReceta"
+        android:src="@android:drawable/ic_menu_add"
+        app:backgroundTint="#5BBA54"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.671"
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
