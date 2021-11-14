@@ -16,7 +16,9 @@ export class AgregarConsumoComponent implements OnInit {
   public productos: any;
   listProductos: any[] = [];
   listAprobados: any[] = [];
+
   displayedColumns: string[] = ['codigo_de_barras', 'descripcion', 'acciones'];
+
   dataSource!: MatTableDataSource<any>;
   desayunoObjeto = {email: "aguas@gmail.com", producto:"", horario:"desayuno" };
   merienda1Objeto = {email: "aguas@gmail.com", producto:"", horario:"merienda_manana" };
