@@ -4,6 +4,10 @@
       <button mat-button routerLink="/home/productos/agregar-producto">AGREGAR PRODUCTO</button>
   </mat-toolbar>
 
+    <mat-form-field appearance="standard">
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Producto" #input>
+    </mat-form-field>
 
     <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

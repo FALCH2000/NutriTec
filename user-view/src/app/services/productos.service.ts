@@ -29,4 +29,11 @@ export class ProductosService {
     console.log(this.url + 'api/producto/pdto/'+codigo)
     return this._http.get(this.url + 'api/producto/pdto/'+codigo);
   }
+
+  addProducto(producto: Object){
+    console.log(this.url+'api/producto/insert');
+      this._http.post(this.url+'api/producto/insert', producto).subscribe(data => {
+      console.log(data);
+    });
+  }
 }
