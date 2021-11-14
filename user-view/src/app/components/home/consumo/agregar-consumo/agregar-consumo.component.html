@@ -1,1 +1,71 @@
-<p>agregar-consumo works!</p>
+<div class="container">
+  <mat-toolbar class="sectionTitle">
+      <span>{{titulo}}</span>
+  </mat-toolbar>
+
+
+<mat-card style="margin-top: 10px;">
+  <form [formGroup]="form" (ngSubmit)="agregarConsumo()">
+      <mat-grid-list cols="4" rowHeight="50px">
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Fecha de Ingreso</mat-label>
+                  <input matInput autocomplete="off" formControlName="fecha">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+            <mat-form-field class="ancho">
+                <mat-label>Consumo Calorías</mat-label>
+                <input matInput autocomplete="off" formControlName="consumo_calorias">
+              </mat-form-field>
+        </mat-grid-tile>
+
+
+          <mat-grid-tile [colspan]="3" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Desayuno</mat-label>
+                  <input matInput autocomplete="off" formControlName="desayuno">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="3" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Merienda Mañana</mat-label>
+                  <input matInput autocomplete="off" formControlName="merienda_m">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="3" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Almuerzo</mat-label>
+                  <input matInput autocomplete="off" formControlName="almuerzo">
+                </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="3" [rowspan]="2">
+            <mat-form-field class="ancho">
+                <mat-label>Merienda Tarde</mat-label>
+                <input matInput autocomplete="off" formControlName="merienda_t">
+              </mat-form-field>
+        </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="3" [rowspan]="2">
+              <mat-form-field class="ancho">
+                  <mat-label>Cena</mat-label>
+                  <input matInput autocomplete="off" formControlName="cena">
+              </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="2">
+              <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">GUARDAR</button>
+              <button  routerLink="/home/productos" mat-raised-button>VOLVER</button>
+          </mat-grid-tile>
+
+      </mat-grid-list>
+
+  </form>
+</mat-card>
+
+</div>

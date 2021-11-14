@@ -29,5 +29,4 @@ export class ProductosService {
     console.log(this.url + 'api/producto/pdto/'+codigo)
     return this._http.get(this.url + 'api/producto/pdto/'+codigo);
   }
-
 }

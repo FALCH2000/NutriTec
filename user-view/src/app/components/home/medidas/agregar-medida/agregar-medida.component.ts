@@ -46,9 +46,10 @@ export class AgregarMedidaComponent implements OnInit {
       peso: Number(this.form.value.peso),
       musculo: Number(this.form.value.musculo),
       grasa: Number(this.form.value.grasa),
-      cedula_paciente: 33333333
+      cedula_paciente: 102222345
     }
     console.log(medida)
+    this._usuarioService.addMedida(medida)
   }
 
 }
