@@ -15,7 +15,8 @@ export class ProductosComponent implements OnInit {
   listProductos: any[] = [];
   listAprobados: any[] = [];
   listEspera: any[] = [];
-  displayedColumns: string[] = ['codigo_de_barras', 'descripcion', 'tamano_porcion', 'acciones'];
+  displayedColumns: string[] = ['codigo_de_barras', 'descripcion', 'tamano_porcion', 'calcio', 'carbohidrato',
+                               'energia', 'grasa', 'hierro', 'proteina', 'sodio', 'acciones'];
   dataSource!: MatTableDataSource<any>;
 
 
@@ -26,6 +27,11 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarProductos()
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   separarProductos(){

@@ -1,50 +1,94 @@
 <div class="container">
-    <mat-toolbar class="sectionTitle">
-        <span>{{titulo}}</span>
+    <mat-toolbar class="myNavbar">
+        <span class="example-spacer">{{titulo}}</span>
         <button mat-button (click)="actualizarTabla('todos')">Todos los Productos</button>
         <button mat-button (click)="actualizarTabla('aprobados')">Aprobados</button>
         <button mat-button (click)="actualizarTabla('espera')">En espera</button>
     </mat-toolbar>
-    
-    
+
+      <mat-form-field appearance="standard">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Producto" #input>
+      </mat-form-field>
+
       <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
-      
+
         <!-- Position Column -->
         <ng-container matColumnDef="codigo_de_barras">
           <th mat-header-cell *matHeaderCellDef> Código de Barras </th>
           <td mat-cell *matCellDef="let element"> {{element.codigo_de_barras}} </td>
         </ng-container>
-      
+
         <!-- Name Column -->
         <ng-container matColumnDef="descripcion">
           <th mat-header-cell *matHeaderCellDef> Descripción </th>
           <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
         </ng-container>
-      
+
         <!-- Symbol Column -->
         <ng-container matColumnDef="tamano_porcion">
           <th mat-header-cell *matHeaderCellDef> Tamaño de Porción (gramos) </th>
           <td mat-cell *matCellDef="let element"> {{element.tamano_porcion}} </td>
         </ng-container>
 
-   
+        <ng-container matColumnDef="carbohidrato">
+          <th mat-header-cell *matHeaderCellDef> Carbohidrato (g) </th>
+          <td mat-cell *matCellDef="let element"> {{element.carbohidrato}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="proteina">
+          <th mat-header-cell *matHeaderCellDef> Proteína (g) </th>
+          <td mat-cell *matCellDef="let element"> {{element.calcio}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="grasa">
+          <th mat-header-cell *matHeaderCellDef> Grasa (g) </th>
+          <td mat-cell *matCellDef="let element"> {{element.grasa}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="energia">
+          <th mat-header-cell *matHeaderCellDef> Energía (kcal) </th>
+          <td mat-cell *matCellDef="let element"> {{element.calcio}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="sodio">
+          <th mat-header-cell *matHeaderCellDef> Sodio(g) </th>
+          <td mat-cell *matCellDef="let element"> {{element.sodio}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="hierro">
+          <th mat-header-cell *matHeaderCellDef> Hierro (mg) </th>
+          <td mat-cell *matCellDef="let element"> {{element.hierro}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="calcio">
+          <th mat-header-cell *matHeaderCellDef> Calcio (mg) </th>
+          <td mat-cell *matCellDef="let element"> {{element.calcio}} </td>
+        </ng-container>
+
+
+
         <ng-container matColumnDef="acciones">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
-              <a *ngIf="titulo == 'Productos en Espera'" 
+              <a *ngIf="titulo == 'Productos en Espera'"
                     class="pointer"  style="color:
                    green;" matTooltip="Editar Empleado">
-                  <button (click)="actualizarProducto(element.codigo_de_barras, element.estado)" 
+                  <button class="esperaButton" (click)="actualizarProducto(element.codigo_de_barras, element.estado)"
                   mat-button>APROBAR</button>
               </a>
-              <a *ngIf="titulo == 'Productos Aprobados'" class="pointer"  
-                    style="color: indianred;" 
+              <a *ngIf="titulo == 'Productos Aprobados'" class="pointer"
+                    style="color: indianred;"
                     matTooltip="Eliminar Empleado">
-                    <button (click)="actualizarProducto(element.codigo_de_barras, element.estado)"
+                    <button class="esperaButton" (click)="actualizarProducto(element.codigo_de_barras, element.estado)"
                      mat-button>ESPERA</button>
               </a>
           </td>
@@ -53,5 +97,5 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
       </div>
-      
+
 </div>

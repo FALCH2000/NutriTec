@@ -8,11 +8,27 @@ table {
     width: 090%;
   }
 
-  .sectionTitle{
-    margin-top: 10px;
-  }
+  .example-spacer {
+    flex: 1 1 auto;
+   }
 
 .container {
     WIDTH: 80%;
     MARGIN: AUTO;
+}
+
+.myNavbar {
+  background: yellowgreen;
+  color: white;
+  margin-top: 10px;
+}
+
+button{
+  background-color: tomato;
+  margin-top: 10px;
+  margin: 10px;
+}
+
+.esperaButton{
+  background-color: rgb(253, 253, 253);
 }
