@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-registro',
@@ -13,7 +14,7 @@ export class RegistroComponent implements OnInit {
   datosAccesoForm: FormGroup;
 
 
-  constructor(private fb: FormBuilder,) {
+  constructor(private fb: FormBuilder) {
     this.datosPersonalesForm = this.fb.group({
       nombre1: ['', Validators.required],
       nombre2: ['', Validators.required],

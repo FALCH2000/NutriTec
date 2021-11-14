@@ -30,6 +30,7 @@ import { AgregarMedidaComponent } from './medidas/agregar-medida/agregar-medida.
     CommonModule,
     HomeRoutingModule,
     SharedModule
-  ]
+  ],
+  entryComponents: [AgregarConsumoComponent]
 })
 export class HomeModule { }

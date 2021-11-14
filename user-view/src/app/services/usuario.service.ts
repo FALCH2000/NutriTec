@@ -23,7 +23,7 @@ export class UsuarioService {
 
   addConsumo(dataConsumo: Object){
     console.log(this.url+'api/paciente/consumo/insert');
-      this._http.post(this.url+'api/paciente/consumo/insert', dataConsumo).subscribe(data => {
+      this._http.post(this.url+'api/Receta/registro/insert', dataConsumo).subscribe(data => {
       console.log(data);
     });
   }

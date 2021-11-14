@@ -18,6 +18,11 @@ export class AgregarConsumoComponent implements OnInit {
   listAprobados: any[] = [];
   displayedColumns: string[] = ['codigo_de_barras', 'descripcion', 'acciones'];
   dataSource!: MatTableDataSource<any>;
+  desayunoObjeto = {email: "aguas@gmail.com", producto:"", horario:"desayuno" };
+  merienda1Objeto = {email: "aguas@gmail.com", producto:"", horario:"merienda_manana" };
+  almuerzoObjeto = {email: "aguas@gmail.com", producto:"", horario:"almuerzo" };
+  merienda2Objeto = {email: "aguas@gmail.com", producto:"", horario:"merienda_tarde" };
+  cenaObjeto = {email: "aguas@gmail.com", producto:"", horario:"cena" };
 
 
   constructor(
@@ -27,13 +32,11 @@ export class AgregarConsumoComponent implements OnInit {
     private router: Router,
     private aRoute: ActivatedRoute) {
     this.form = this.fb.group({
-      fecha: ['', Validators.required],
       almuerzo: ['', Validators.required],
       cena: ['', Validators.required],
       desayuno: ['', Validators.required],
       merienda_m: ['', Validators.required],
-      merienda_t: ['', Validators.required],
-      consumo_calorias: ['', Validators.required]
+      merienda_t: ['', Validators.required]
     })
   }
 
@@ -84,27 +87,64 @@ export class AgregarConsumoComponent implements OnInit {
     });
   }
 
-  agregarConsumo(){
-    if (this.form.invalid){
-      return;
-    }
-    const consumo: Object =
-    {
-      fecha: "11/9/2021",
-      almuerzo: this.form.value.almuerzo,
-      cena: this.form.value.cena,
-      desayuno: this.form.value.desayuno,
-      merienda_manana: this.form.value.merienda_m,
-      merienda_tarde: this.form.value.merienda_t,
-      consumo_calorias: Number(this.form.value.consumo_calorias),
-      cedula_paciente: 102222345
-    }
-    console.log(consumo)
-    this._usuarioService.addConsumo(consumo)
+  desayuno(codigo_de_barras: string, nombre: string){
+      this._usuarioService.addConsumo([{email: "aguas@gmail.com", producto:nombre, horario:"desayuno" }])
+      this.desayunoObjeto.producto = this.desayunoObjeto.producto + " " + nombre;
+      this.form.setValue({
+        desayuno: this.desayunoObjeto.producto,
+        almuerzo: this.almuerzoObjeto.producto,
+        cena: this.cenaObjeto.producto,
+        merienda_m: this.merienda1Objeto.producto,
+        merienda_t: this.merienda2Objeto.producto,
+    })
   }
 
-  consumo(codigo_de_barras: string){
-    console.log(codigo_de_barras)
+  merienda1(codigo_de_barras: string, nombre: string){
+    this._usuarioService.addConsumo([{email: "aguas@gmail.com", producto:nombre, horario:"merienda_manana" }])
+    this.merienda1Objeto.producto = this.merienda1Objeto.producto + " " + nombre;
+    this.form.setValue({
+      desayuno: this.desayunoObjeto.producto,
+      almuerzo: this.almuerzoObjeto.producto,
+      cena: this.cenaObjeto.producto,
+      merienda_m: this.merienda1Objeto.producto,
+      merienda_t: this.merienda2Objeto.producto,
+  })
+  }
+
+  almuerzo(codigo_de_barras: string, nombre: string){
+    this._usuarioService.addConsumo([{email: "aguas@gmail.com", producto:nombre, horario:"almuerzo" }])
+    this.almuerzoObjeto.producto = this.almuerzoObjeto.producto + " " + nombre;
+    this.form.setValue({
+      desayuno: this.desayunoObjeto.producto,
+      almuerzo: this.almuerzoObjeto.producto,
+      cena: this.cenaObjeto.producto,
+      merienda_m: this.merienda1Objeto.producto,
+      merienda_t: this.merienda2Objeto.producto,
+  })
+  }
+
+  merienda2(codigo_de_barras: string, nombre: string){
+    this._usuarioService.addConsumo([{email: "aguas@gmail.com", producto:nombre, horario:"merienda_tarde" }])
+    this.merienda2Objeto.producto = this.merienda2Objeto.producto + " " + nombre;
+    this.form.setValue({
+      desayuno: this.desayunoObjeto.producto,
+      almuerzo: this.almuerzoObjeto.producto,
+      cena: this.cenaObjeto.producto,
+      merienda_m: this.merienda1Objeto.producto,
+      merienda_t: this.merienda2Objeto.producto,
+  })
+  }
+
+  cena(codigo_de_barras: string, nombre: string){
+    this._usuarioService.addConsumo([{email: "aguas@gmail.com", producto:nombre, horario:"cena" }])
+    this.cenaObjeto.producto = this.cenaObjeto.producto + " " + nombre;
+    this.form.setValue({
+      desayuno: this.desayunoObjeto.producto,
+      almuerzo: this.almuerzoObjeto.producto,
+      cena: this.cenaObjeto.producto,
+      merienda_m: this.merienda1Objeto.producto,
+      merienda_t: this.merienda2Objeto.producto,
+  })
   }
 
 }

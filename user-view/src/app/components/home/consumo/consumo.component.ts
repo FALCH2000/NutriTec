@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { AgregarConsumoComponent } from './agregar-consumo/agregar-consumo.component';
 
 @Component({
   selector: 'app-consumo',
