@@ -16,3 +16,13 @@ body{
 .mat-accordion{
     width: 100px;
 }
+
+.mat-button{
+    background-color: transparent;
+    color: black;
+}
+
+.mat-button:hover{
+    background-color: #dda551;
+    color: white;
+}

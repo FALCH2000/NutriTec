@@ -16,14 +16,16 @@
                 <mat-expansion-panel *ngFor="let value of lista">
                   <!-- Header del panel -->
                     <mat-expansion-panel-header>
-                        <p id= 'pacienteText'> Paciente: {{value.nombre}} </p> 
+                        <p id= 'pacienteText'> Paciente: {{value.nombre1}} </p> 
                     </mat-expansion-panel-header>
                   <!--Info dentro del panel-->
                   <h5>Información</h5>
                   <p>Email: {{value.email}}</p>
                   <p>Cédula {{value.cedula}}</p>
-                  <p>Numero {{value.numero}}</p>
-                  <button mat-stroked-button color="warn">Asignar Paciente</button>
+                  <p>Pais {{value.pais}}</p>
+                  <div>
+                    <button mat-raised-button color="warn" (click)="asociar(value.cedula)" class="mat-button">Asignar Paciente</button>
+                  </div>
                   
                 </mat-expansion-panel>
             </mat-accordion>
