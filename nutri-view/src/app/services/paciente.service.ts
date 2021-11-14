@@ -42,5 +42,9 @@ export class PacienteService {
     return this._http.get(this.url+ 'api/paciente/'+cedula);
   }
 
+  getPacientesByCodigo(codigoNutri:string): Observable<any>{
+    return this._http.get(this.url + 'api/usuario/pacientes/'+ codigoNutri);
+  }
+
 
 }

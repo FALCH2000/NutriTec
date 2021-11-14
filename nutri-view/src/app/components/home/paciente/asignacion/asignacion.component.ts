@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import { PlanesService} from 'src/app/services/planes.service';
+import { NutriService} from 'src/app/services/usuario.service';
+import { PacienteService} from 'src/app/services/paciente.service'
 
 interface pacientes{
   nombre:string,
@@ -13,29 +15,26 @@ interface pacientes{
   selector: 'app-asignacion',
   templateUrl: './asignacion.component.html',
   styleUrls: ['./asignacion.component.css'],
-  providers: [PlanesService]
+  providers: [PlanesService, NutriService, PacienteService]
 })
 export class AsignacionComponent implements OnInit {
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl(),
   });
-  public pacientesNoAsignados:pacientes={
-    nombre:'Wei',
-    email:'wei@gmail.com',
-    numero:88888888,
-    cedula: 117711111
-  }
-  public pacientesList=["Cristian","Raul","Alejandro"]
+
+  public pacientesList:any=[]
   public planesList:any= [];
-  public lista=[this.pacientesNoAsignados];
   
   constructor(
-    private _planesService:PlanesService
+    private _planesService:PlanesService,
+    private _pacienteService:PacienteService,
+    private _nutriService:NutriService
   ) {}
 
   ngOnInit(): void {
     this.getPlanes();
+    this.getPacientesDeNutri();
   }
   getPlanes(){
     this._planesService.getPlanes().subscribe(
@@ -44,6 +43,7 @@ export class AsignacionComponent implements OnInit {
         while(result[counter]!=undefined){
           var auxiliar=result[counter];
           this.planesList.push(auxiliar.nombre);
+          
           counter++;
         }
       },
@@ -51,6 +51,23 @@ export class AsignacionComponent implements OnInit {
         alert("Error obteniendo los planes");
         console.log("Error "+ <any>error);
       }
+    )
+  }
+
+  getPacientesDeNutri(){
+    var codigo= "N0002";
+    this._pacienteService.getPacientesByCodigo(codigo).subscribe(
+      result => {
+        var counter=0;
+        while(result[counter]!=undefined){
+          var auxiliar=result[counter];
+          this.pacientesList.push(auxiliar.nombre1+" "+ auxiliar.nombre2);
+          counter++;
+        }
+      },
+      error => {
+        console.log("Error "+ <any>error);
+      } 
     )
   }
 
