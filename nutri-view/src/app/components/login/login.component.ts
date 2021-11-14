@@ -19,7 +19,8 @@ interface Nutricionista{
   providers: [NutriService]
 })
 export class LoginComponent implements OnInit {
-
+  public notValidUser=false;
+  public notValidPassword=false;
   constructor(
     private router:Router,
     private _nutriService: NutriService,
@@ -33,11 +34,18 @@ export class LoginComponent implements OnInit {
     console.log('username es: '+nutriEmail); 
     this._nutriService.getNutricionistaByEmail(nutriEmail).subscribe(
       result=> {
-        console.log(result);
-        this.validarPassword(nutriEmail, result);
+        console.log("no se poe que"+result);
+        if(result.nombre1==null){
+          this.notValidUser=true;
+        }else{
+          this.validarPassword(nutriEmail, result);
+          this.notValidUser=false;
+        }
+        
       },
       error=> {
         console.log("ERROR OBTENIENDO USUARIO\n"+<any> error)
+        this.notValidUser=true;
       }
     )
   }
@@ -52,9 +60,10 @@ export class LoginComponent implements OnInit {
         if(result==true){
           console.log("SUCCES");
           this._nutriService.setNutricionistaValues(nutriInfo);
+          this.notValidPassword=false;
           this.router.navigate(['/home']);
         }else {
-          alert("contra incorrecta compa");
+          this.notValidPassword=true;
         }
       },
       error=> {
