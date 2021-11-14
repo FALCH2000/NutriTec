@@ -25,5 +25,22 @@ export class PacienteService {
     return this._http.get(this.url + 'api/paciente/libres');
   }
 
+  asignarNutricionista(infoPaciente:Object, cedula:number, codigo: string){
+      var codigoPatito= 'N0002';
+      this._http.put(this.url+'api/paciente/asignar/'+cedula+'/'+codigoPatito, infoPaciente).subscribe(
+          data => {"Data del update "+console.log(data);
+    });
+  }
+
+  desligarPaciente(cedula: string | null){
+      this._http.delete(this.url+'api/paciente/desligarnutri/'+cedula).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  getPacienteByCedula(cedula:number): Observable<any>{
+    return this._http.get(this.url+ 'api/paciente/'+cedula);
+  }
+
 
 }

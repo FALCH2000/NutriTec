@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from 'src/app/services/paciente.service';
+import { NutriService} from 'src/app/services/usuario.service';
 
 interface pacientesNoAsignados{
   nombre1:string,
@@ -12,19 +13,14 @@ interface pacientesNoAsignados{
   selector: 'app-asociacion',
   templateUrl: './asociacion.component.html',
   styleUrls: ['./asociacion.component.css'],
-  providers: [PacienteService]
+  providers: [PacienteService, NutriService]
 })
 export class AsociacionComponent implements OnInit {
-  public pacientesNoAsignados1:pacientesNoAsignados={
-    nombre1:'Wei',
-    email:'wei@gmail.com',
-    pais:"CR",
-    cedula: 117711111
-  }
 
-  public lista: pacientesNoAsignados[]=[this.pacientesNoAsignados1];
+  public lista: pacientesNoAsignados[]=[];
   constructor(
-    private _pacienteService:PacienteService
+    private _pacienteService:PacienteService,
+    private _nutriService: NutriService
   ) { }
 
   ngOnInit(): void {
@@ -49,8 +45,8 @@ export class AsociacionComponent implements OnInit {
 
   cargarPaciente(paciente:any){
     var pacientesNoAsignados:pacientesNoAsignados={nombre1:'Wei',
-    email:'wei@gmail.com',
-    pais:"CR",
+    email:'',
+    pais:"",
     cedula: 117711111}
     pacientesNoAsignados.cedula=paciente.cedula;
     pacientesNoAsignados.nombre1=paciente.nombre1;
@@ -62,6 +58,23 @@ export class AsociacionComponent implements OnInit {
 
   asociar(cedula:number){
     console.log("este men más raro "+ cedula);
+    this.obtenerPacienteInfo(cedula);
+  }
+
+  obtenerPacienteInfo(cedula:number){
+    this._pacienteService.getPacienteByCedula(cedula).subscribe(
+      result => {
+        this.updatePacienteAsociar(result, cedula);
+      },
+      error => {
+        console.log("ERROR CON OBTENER PACIENTE \n"+ <any>error);
+      }
+    )
+  }
+
+  updatePacienteAsociar(infoUser:Object, cedula:number){
+    this._pacienteService.asignarNutricionista(infoUser, cedula, 
+      this._nutriService.nutricionista.codigo_nutricionista);
   }
 
 }
