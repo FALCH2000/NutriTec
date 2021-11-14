@@ -41,8 +41,8 @@ export class AgregarConsumoComponent implements OnInit {
       almuerzo: this.form.value.almuerzo,
       cena: this.form.value.cena,
       desayuno: this.form.value.desayuno,
-      merienda_m: this.form.value.merienda_m,
-      merienda_t: this.form.value.merienda_t,
+      merienda_manana: this.form.value.merienda_m,
+      merienda_tarde: this.form.value.merienda_t,
       consumo_calorias: Number(this.form.value.consumo_calorias),
       cedula_paciente: 102222345
     }

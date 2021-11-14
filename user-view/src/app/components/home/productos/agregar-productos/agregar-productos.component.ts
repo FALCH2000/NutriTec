@@ -54,6 +54,7 @@ export class AgregarProductosComponent implements OnInit {
       hierro:  Number(this.form.value.hierro),
     }
     console.log(producto)
+    this._productosService.addProducto(producto)
   }
 
 }

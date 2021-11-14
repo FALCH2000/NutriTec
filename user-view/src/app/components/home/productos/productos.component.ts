@@ -12,6 +12,7 @@ export class ProductosComponent implements OnInit {
   titulo = 'Gestión de Productos'
   public productos: any;
   listProductos: any[] = [];
+  listAprobados: any[] = [];
   displayedColumns: string[] = ['codigo_de_barras', 'descripcion', 'tamano_porcion', 'acciones'];
   dataSource!: MatTableDataSource<any>;
 
@@ -21,6 +22,11 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarProductos()
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   cargarProductos(){
@@ -36,13 +42,22 @@ export class ProductosComponent implements OnInit {
                                   calcio:result[i].calcio, hierro:result[i].hierro,
                                   estado:result[i].estado});
           i++;
+
         }
-        this.dataSource = new MatTableDataSource(this.listProductos)
-        console.log(this.listProductos)
+        this.separarProductos()
       },
       error => {
         console.log("Error al cargar la lista de Empleados")
       });
+  }
+
+  separarProductos(){
+    for( var i = 0; i < this.listProductos.length ; i++){
+      if(this.listProductos[i].estado == 'aprobado'){
+        this.listAprobados.push(this.listProductos[i])
+      }
+    }
+    this.dataSource = new MatTableDataSource(this.listAprobados)
   }
 
   verProducto(codigo_de_barras: string){
