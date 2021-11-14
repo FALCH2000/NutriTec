@@ -7,6 +7,8 @@ import { ProductosComponent } from './productos/productos.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SharedModule } from '../shared/shared.module';
+import { PaginaComponent } from './reporte/pagina/pagina.component';
+import { GenerarPDFComponent } from './reporte/generar-pdf/generar-pdf.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { SharedModule } from '../shared/shared.module';
     HomeComponent,
     ProductosComponent,
     InicioComponent,
-    NavbarComponent
+    NavbarComponent,
+    PaginaComponent,
+    GenerarPDFComponent
   ],
   imports: [
     CommonModule,
