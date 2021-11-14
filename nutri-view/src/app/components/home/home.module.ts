@@ -10,6 +10,10 @@ import { PlanesComponent } from './planes/planes.component';
 import { SharedModule } from '../shared/shared.module';
 import { CrearPlanComponent } from './planes/crear-plan/crear-plan.component';
 import { AgregarProductoComponent } from './productos/agregar-producto/agregar-producto.component';
+import { AsociacionComponent } from './paciente/asociacion/asociacion.component';
+import { AsignacionComponent } from './paciente/asignacion/asignacion.component';
+import { SeguimientoComponent } from './paciente/seguimiento/seguimiento.component';
+
 
 
 @NgModule({
@@ -20,7 +24,10 @@ import { AgregarProductoComponent } from './productos/agregar-producto/agregar-p
     ProductosComponent,
     PlanesComponent,
     CrearPlanComponent,
-    AgregarProductoComponent
+    AgregarProductoComponent,
+    AsociacionComponent,
+    AsignacionComponent,
+    SeguimientoComponent
   ],
   imports: [
     CommonModule,

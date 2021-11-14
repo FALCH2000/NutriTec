@@ -10,9 +10,10 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
 
-  constructor() { }
+  constructor(
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -40,7 +41,8 @@ export class LoginComponent implements OnInit {
   /** Valida la contrasenna ingresada por el usuario */
   validarPassword(){
     var textoPas=(<HTMLInputElement>document.getElementById('password')).value;
-    console.log('password es: '+textoPas); /** 
+    console.log('password es: '+textoPas); 
+    /** 
     this._clienteService.getValidacionPas(textoPas).subscribe(
       result => {
         console.log(result);
@@ -57,5 +59,6 @@ export class LoginComponent implements OnInit {
       }
     ); */
   }
+  
 
 }
