@@ -9,7 +9,6 @@
 <body>
     <div class="container">
         <h2>Seguimiento de pacientes</h2>
-        <h3>Seleccione al paciente</h3>
         <div class= "info-container">
               <mat-form-field appearance="fill">
                 <mat-label>Seleccionar Paciente</mat-label>
@@ -20,8 +19,8 @@
               <mat-divider></mat-divider>
               <mat-card *ngIf="displayUsuario" class="example-card" disabled>
                 <mat-card-title-group>
-                  <mat-card-title>Nombre paciente</mat-card-title>
-                  <mat-card-subtitle>Cedula paciente</mat-card-subtitle>
+                  <mat-card-title>{{paciente.nombre}}</mat-card-title>
+                  <mat-card-subtitle>Cedula {{paciente.cedula}}</mat-card-subtitle>
                 </mat-card-title-group>
                 <mat-card-content>
                   

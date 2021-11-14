@@ -49,9 +49,8 @@ export class SeguimientoComponent implements OnInit {
         console.log("Error cargando a un paciente "+ <any>error);
       }
     )
-    
-
   }
+  
   getPacientesDeNutri(){
     var codigo= "N0002"; //TENGO QUE USAR EL CODIGO DEL NUTRICIONISTA ACTUAL
     this._pacienteService.getPacientesByCodigo(codigo).subscribe(
@@ -87,7 +86,6 @@ export class SeguimientoComponent implements OnInit {
       result => {
         var counter=0;
         this.registroList=[];
-        console.log("shis");
         while(result[counter]!=undefined){
           var auxiliar=result[counter];
           this.registroList.push(auxiliar);
