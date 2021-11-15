@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'home', loadChildren:() => import('./components/home/home.module').then(x => x.HomeModule)},
   { path: '**', redirectTo: 'login', pathMatch: 'full'}
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
