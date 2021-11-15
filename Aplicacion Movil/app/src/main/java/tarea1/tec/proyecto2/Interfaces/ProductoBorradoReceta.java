@@ -9,6 +9,10 @@ import retrofit2.http.POST;
 import tarea1.tec.proyecto2.Modelos.ProductosNuevoRecetas;
 
 public interface ProductoBorradoReceta {
+    /**
+     *
+     * Metodo para borrar un producto de una receta
+     */
     @POST("/api/Receta/BorrarProdcutoReceta/delete")
     public Call<ArrayList<ProductosNuevoRecetas>> env(@Body ArrayList<ProductosNuevoRecetas> Body);
 }

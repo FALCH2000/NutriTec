@@ -7,6 +7,11 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface ProductosReceta {
+    /**
+     *
+     * Metodo para obtener productos de una receta
+     */
+
     @GET("api/Receta/ProducReceta/{nombre}")
     public Call<List<String>> find(@Path("nombre") String email);
 }

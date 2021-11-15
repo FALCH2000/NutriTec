@@ -63,7 +63,10 @@ public class Registro_Diario extends AppCompatActivity {
         CargarProductosRecetas ();
     }
 
-
+    /**
+     *
+     * @param v Tipo vista para ser detectado por el boton
+     */
 
     public void CargarFiltros(View v){
 
@@ -191,6 +194,10 @@ public class Registro_Diario extends AppCompatActivity {
         }
     }
 
+    /**
+     * Cargar productos y recetas en la listview
+     */
+
     public void CargarProductosRecetas(){
         ListView listviewProducto;
         ListView listAgregado;
@@ -309,10 +316,18 @@ public class Registro_Diario extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     *
+     * @param view Tipo vista para ser detectado por el boton
+     */
     public void ATRAS(View view){
         super.onBackPressed ();
     }
 
+    /**
+     * Carga horarios de comidas en el spinner de la interfaz
+     */
     public void CargarHorarios(){
         Spinner spinner;
         ArrayList<String> horarios;
@@ -359,6 +374,10 @@ public class Registro_Diario extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param v Tipo vista para ser detectado por el boton
+     */
     public void EnviarRegistro(View v){
         int indice = 0;
         ArrayList datos = new ArrayList ();
@@ -399,8 +418,11 @@ public class Registro_Diario extends AppCompatActivity {
             call.enqueue(new Callback<ArrayList<RegistroM>>() {
                 @Override
                 public void onResponse(Call<ArrayList<RegistroM>> call, Response<ArrayList<RegistroM>> response) {
+
+
                     try
                     {
+
                         Toast.makeText(Registro_Diario.this, "Guardado", Toast.LENGTH_SHORT).show();
                     }catch (Exception ex){
                         Toast.makeText(Registro_Diario.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
@@ -415,6 +437,10 @@ public class Registro_Diario extends AppCompatActivity {
         }else{
             Toast.makeText(Registro_Diario.this, "Agregue algún producto o receta", Toast.LENGTH_SHORT).show();
         }
+
+        Intent principal = new Intent(Registro_Diario.this, Registro_Diario.class);
+        principal.putExtra ("email", email);
+        startActivity (principal);
 
     }
 
