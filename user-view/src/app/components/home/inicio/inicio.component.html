@@ -8,7 +8,7 @@
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Mario Neta</mat-card-title>
+      <mat-card-title>{{nutriInfo.nombre}}</mat-card-title>
       <mat-card-subtitle>Ciclista de Ruta</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="https://image.freepik.com/foto-gratis/prospero-hombre-negocios-mantiene-manos-cruzadas-tiene-expresion-satisfecha_273609-16711.jpg"
@@ -26,14 +26,20 @@
       </mat-card-header>
       <mat-card-content>
         <p>
-        Códidgo de Nutricionista: N0005
+        Estado: {{nutriInfo.estado}}
 
         </p>
         <p>
-          Cédula: 109870654
+          Cédula: {{nutriInfo.cedula}}
         </p>
         <p>
-          Dirección: San Pedro San José
+          Peso: {{nutriInfo.peso}} kg
+        </p>
+        <p>
+          IMC: {{nutriInfo.imc}}
+        </p>
+        <p>
+          País: {{nutriInfo.pais}}
         </p>
       </mat-card-content>
     </mat-card>

@@ -29,3 +29,7 @@ button{
 .example-spacer {
   flex: 1 1 auto;
  }
+ #ButtonSend{
+   margin-right: 700px;
+   color:white;
+ }

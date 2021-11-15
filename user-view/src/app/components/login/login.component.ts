@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           console.log("SUCCES");
           this._userService.setUserValues(nutriInfo);
           this.notValidPassword=false;
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home/inicio']);
         }else {
           this.notValidPassword=true;
         }

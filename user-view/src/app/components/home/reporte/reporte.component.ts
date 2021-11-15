@@ -34,6 +34,6 @@ export class ReporteComponent implements OnInit {
     doc.text('Numero de factura' ,20, 38);
     doc.save('Reporte.pdf');
 
-    this.router.navigate(['/home/inicio']);
+    this.router.navigate(['/home/medidas']);
   }
 }

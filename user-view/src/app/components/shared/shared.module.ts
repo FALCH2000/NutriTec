@@ -25,6 +25,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import {MatTreeModule} from '@angular/material/tree'; 
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import { FormsModule } from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -57,7 +59,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatStepperModule,
     MatTreeModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    MatNativeDateModule,
+    MatDividerModule
   ],
   exports: [
     CommonModule,
@@ -84,7 +88,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatStepperModule,
     MatTreeModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    MatNativeDateModule,
+    MatDividerModule
   ]
 })
 export class SharedModule { }
