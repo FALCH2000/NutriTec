@@ -9,9 +9,9 @@
 
 <body>
     <div class="container">
-        <h3>Generar reporte</h3>
+        <h3>Reporte de Cobros</h3>
        
-        <button>Descargar reporte</button>
+        <button routerLink="/home/pdf">Descargar reporte</button>
         <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       
@@ -21,52 +21,52 @@
               <!-- Position Column -->
               <ng-container matColumnDef="tipo_cobro">
                 <th mat-header-cell *matHeaderCellDef> Tipo de cobro </th>
-                <td mat-cell *matCellDef="let element"> {{element.codigo_de_barras}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.tipo_cobro}} </td>
               </ng-container>
       
               <!-- Name Column -->
               <ng-container matColumnDef="codigo_nutricionista">
                 <th mat-header-cell *matHeaderCellDef> Codigo del nutricionista </th>
-                <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.codigo_nutricionista}} </td>
               </ng-container>
       
               <!-- Symbol Column -->
               <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef> Email </th>
-                <td mat-cell *matCellDef="let element"> {{element.tamano_porcion}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
               </ng-container>
       
               <ng-container matColumnDef="nombre">
                 <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                <td mat-cell *matCellDef="let element"> {{element.carbohidrato}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
               </ng-container>
       
               <ng-container matColumnDef="numero_tarjeta">
                 <th mat-header-cell *matHeaderCellDef> No. Tarjeta </th>
-                <td mat-cell *matCellDef="let element"> {{element.calcio}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.numero_tarjeta}} </td>
               </ng-container>
       
       
               <ng-container matColumnDef="cantidad_pacientes">
                 <th mat-header-cell *matHeaderCellDef> Cantidad de pacientes </th>
-                <td mat-cell *matCellDef="let element"> {{element.grasa}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.cantidad_pacientes}} </td>
               </ng-container>
       
       
               <ng-container matColumnDef="monto_total">
                 <th mat-header-cell *matHeaderCellDef> Monto total </th>
-                <td mat-cell *matCellDef="let element"> {{element.calcio}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.monto_total}} </td>
               </ng-container>
       
       
               <ng-container matColumnDef="descuento">
                 <th mat-header-cell *matHeaderCellDef> Descuento </th>
-                <td mat-cell *matCellDef="let element"> {{element.sodio}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.descuento}} </td>
               </ng-container>
       
               <ng-container matColumnDef="monto_cobro">
                 <th mat-header-cell *matHeaderCellDef> Monto de cobro </th>
-                <td mat-cell *matCellDef="let element"> {{element.hierro}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.monto_cobro}} </td>
               </ng-container>
       
             
