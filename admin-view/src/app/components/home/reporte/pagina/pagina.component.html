@@ -9,67 +9,63 @@
 
 <body>
     <div class="container">
-        <h3>Reporte de Cobros</h3>
-       
-        <button routerLink="/home/pdf">Descargar reporte</button>
+      <mat-toolbar class="myNavbar">
+        <span class="example-spacer">Reporte de Cobros</span>
+        <button mat-button routerLink="/home/pdf">Descargar reporte</button>
+      </mat-toolbar>
         <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      
+
               <!--- Note that these columns can be defined in any order.
                     The actual rendered columns are set as a property on the row definition" -->
-      
+
               <!-- Position Column -->
               <ng-container matColumnDef="tipo_cobro">
-                <th mat-header-cell *matHeaderCellDef> Tipo de cobro </th>
+                <th mat-header-cell *matHeaderCellDef> Tipo Cobro </th>
                 <td mat-cell *matCellDef="let element"> {{element.tipo_cobro}} </td>
               </ng-container>
-      
+
               <!-- Name Column -->
               <ng-container matColumnDef="codigo_nutricionista">
-                <th mat-header-cell *matHeaderCellDef> Codigo del nutricionista </th>
+                <th mat-header-cell *matHeaderCellDef> Cod. Nutricionista </th>
                 <td mat-cell *matCellDef="let element"> {{element.codigo_nutricionista}} </td>
               </ng-container>
-      
+
               <!-- Symbol Column -->
               <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef> Email </th>
                 <td mat-cell *matCellDef="let element"> {{element.email}} </td>
               </ng-container>
-      
+
               <ng-container matColumnDef="nombre">
                 <th mat-header-cell *matHeaderCellDef> Nombre </th>
                 <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
               </ng-container>
-      
-              <ng-container matColumnDef="numero_tarjeta">
-                <th mat-header-cell *matHeaderCellDef> No. Tarjeta </th>
-                <td mat-cell *matCellDef="let element"> {{element.numero_tarjeta}} </td>
-              </ng-container>
-      
-      
+
+
               <ng-container matColumnDef="cantidad_pacientes">
-                <th mat-header-cell *matHeaderCellDef> Cantidad de pacientes </th>
+                <th mat-header-cell *matHeaderCellDef> Cant. pacientes </th>
                 <td mat-cell *matCellDef="let element"> {{element.cantidad_pacientes}} </td>
               </ng-container>
-      
-      
+
+
               <ng-container matColumnDef="monto_total">
                 <th mat-header-cell *matHeaderCellDef> Monto total </th>
                 <td mat-cell *matCellDef="let element"> {{element.monto_total}} </td>
               </ng-container>
-      
-      
+
+
               <ng-container matColumnDef="descuento">
                 <th mat-header-cell *matHeaderCellDef> Descuento </th>
                 <td mat-cell *matCellDef="let element"> {{element.descuento}} </td>
               </ng-container>
-      
+
               <ng-container matColumnDef="monto_cobro">
                 <th mat-header-cell *matHeaderCellDef> Monto de cobro </th>
                 <td mat-cell *matCellDef="let element"> {{element.monto_cobro}} </td>
               </ng-container>
-      
-            
+
+
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>

@@ -1,4 +1,24 @@
+.container {
+  WIDTH: 80%;
+  height: 495px;
+  MARGIN: AUTO;
+}
 
+button{
+  background-color: tomato;
+  margin-top: 10px;
+  margin: 10px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+ }
+
+.myNavbar {
+  background: yellowgreen;
+  color: white;
+  margin-top: 10px;
+}
 
 .info-container{
     margin-top: 40px;
@@ -20,7 +40,7 @@
     transition: 0.2s all;
 }
 /* Adding transformation when the button is active */
-  
+
 .btn:active {
     transform: scale(0.98);
     background-color: #c98219;
@@ -36,4 +56,9 @@
 }
 .mat-elevation-z8{
     width: 100%;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
 }

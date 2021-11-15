@@ -10,8 +10,7 @@ import { CobroService } from 'src/app/services/cobro.service';
 })
 export class PaginaComponent implements OnInit {
   listCobros: any[] = [];
-  displayedColumns: string[] = ['tipo_cobro', 'codigo_nutricionista', 'email',  'nombre',
-                               'numero_tarjeta', 'cantidad_pacientes', 
+  displayedColumns: string[] = ['tipo_cobro', 'codigo_nutricionista', 'email',  'nombre', 'cantidad_pacientes',
                                'monto_total', 'descuento', 'monto_cobro'];
   dataSource!: MatTableDataSource<any>;
 
@@ -33,7 +32,7 @@ export class PaginaComponent implements OnInit {
           counter++;
         }
         this.dataSource = new MatTableDataSource(this.listCobros);
-        
+
       }
     )
   }
