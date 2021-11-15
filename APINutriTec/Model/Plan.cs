@@ -7,6 +7,10 @@ namespace APINutriTec.Model
 {
     public class Plan
     {
+        /**
+         * Clase para definir los planes
+         * @author Harold Espinoza
+         */
         public string nombre { get; set; }
         public string desayuno { get; set; }
         public string merienda_manana { get; set; }

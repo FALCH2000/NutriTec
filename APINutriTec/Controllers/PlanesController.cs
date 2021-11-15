@@ -7,6 +7,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+/*
+ * Controlador de planes
+ * @author Harold Espinoza 
+ * @author Armando Fallas
+ * 
+ */
 namespace APINutriTec.Controllers
 {
     [Route("api/[controller]")]
@@ -19,9 +26,12 @@ namespace APINutriTec.Controllers
             cadenaConexion = "Server=tcp:bases-tec.database.windows.net,1433;Initial Catalog=NutriTECBD;Persist Security Info=False;User ID=hadmin;Password=marioNeta1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         }
 
+        /**
+         * Metodo de tipo Get que retorna los planes creados por cierto nutricionista
+         * @param codigo nutricionista que se busca
+         * @return booleano con el resultado de la operacion
+         */
         [HttpGet("nut/{codigo}")]
-        // Get: api/usuario todos los usuarios
-
         public List<Plan> GetPlanesNut(string codigo)
         {
             SqlDataReader reader = null;
@@ -61,7 +71,11 @@ namespace APINutriTec.Controllers
 
             return planes;
         }
-        
+
+        /**
+         * Metodo de tipo Get que obtiene un plan por su nombre
+         * @return booleano con el resultado de la operacion
+         */
         [HttpGet("plan")]
         //Obtiene un plan por su nombre
         public Plan Getplan([FromBody]Texto nombre)
@@ -99,6 +113,46 @@ namespace APINutriTec.Controllers
             return plan;
         }
 
+
+        [HttpPost("insertplan")]
+        public async Task<IActionResult> InsertPlan([FromBody] Plan plan)
+        {
+            if (plan == null)
+
+                return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            SqlConnection myConnection = new SqlConnection();
+
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "InsertPlan";
+            sqlCmd.Parameters.AddWithValue("@nombre", plan.nombre);
+            sqlCmd.Parameters.AddWithValue("@desayuno", plan.desayuno);
+            sqlCmd.Parameters.AddWithValue("@merienda_manana", plan.merienda_manana);
+            sqlCmd.Parameters.AddWithValue("@almuerzo", plan.almuerzo);
+            sqlCmd.Parameters.AddWithValue("@cena", plan.cena);
+            sqlCmd.Parameters.AddWithValue("@merienda_tarde", plan.merienda_tarde);
+            sqlCmd.Parameters.AddWithValue("@nutricionista", plan.nutricionista);
+
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+            var created = sqlCmd.ExecuteNonQuery();
+            myConnection.Close();
+
+
+
+            return Created("created", created);
+        }
+
+        /**
+         * Metodo de tipo Put que actualiza los datos de un plan
+         * @return booleano con el resultado de la operacion
+         */
         [HttpPut("edit")]
         public async Task<IActionResult> UpdatePlan([FromBody] Plan plan) 
         {
@@ -134,6 +188,11 @@ namespace APINutriTec.Controllers
             return Ok();
         }
 
+        /**
+         * Metodo de tipo Delete que elimina un plan por su nombre
+         * @param codigo nutricionista que se busca
+         * @return booleano con el resultado de la operacion
+         */
         [HttpDelete("delete")]
         public async Task<IActionResult> DeletePlan([FromBody] Texto nombre) 
         {
@@ -153,6 +212,77 @@ namespace APINutriTec.Controllers
             myConnection.Close();
 
             return NoContent();
+        }
+
+        /**
+         * Metodo de tipo Post que asigna un plan a un paciente
+         * @return booleano con el resultado de la operacion
+         */
+        [HttpPost("asignar")]
+        public async Task<IActionResult> Asignarplan([FromBody] PlanPPanciente plan)
+        {
+            if (plan == null)
+
+                return BadRequest();
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            SqlConnection myConnection = new SqlConnection();
+
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "AsignarPlanAPaciente";
+            sqlCmd.Parameters.Add("@cedula", SqlDbType.VarChar, 50).Value = plan.cedula;
+            sqlCmd.Parameters.Add("@nombre_plan", SqlDbType.VarChar, 120).Value = plan.nombre_plan;
+            sqlCmd.Parameters.Add("@inicio", SqlDbType.VarChar, 120).Value = plan.periodo_inicio;
+            sqlCmd.Parameters.Add("@fin", SqlDbType.VarChar, 120).Value = plan.periodo_fin;
+
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+            var created = sqlCmd.ExecuteNonQuery();
+            myConnection.Close();
+
+
+
+            return Created("created",created);
+        }
+
+        //agregar producto 
+        [HttpPost("NuevoProductoPlan/insert")]
+        public async Task<IActionResult> InsertarNuevaProductoPlan([FromBody] List<AgregarProPlan> producto)
+        {
+            SqlDataReader reader = null;
+
+            foreach (AgregarProPlan r in producto)
+            {
+                SqlConnection myConnection = new SqlConnection(cadenaConexion);
+
+
+                SqlCommand sqlCmd = new SqlCommand();
+
+                sqlCmd.Connection = myConnection;
+
+                sqlCmd.CommandType = System.Data.CommandType.StoredProcedure;
+                sqlCmd.CommandText = "AgregarProductoPlan ";
+                sqlCmd.Parameters.AddWithValue("@NombrePlan", r.nombre);
+                sqlCmd.Parameters.AddWithValue("@Producto", r.producto);
+
+
+
+                myConnection.Open();
+
+                var created = sqlCmd.ExecuteNonQuery();
+
+                myConnection.Close();
+
+            }
+
+
+
+            return Created("Agregado", 1);
         }
 
     }
