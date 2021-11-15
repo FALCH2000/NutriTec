@@ -15,7 +15,7 @@ interface pacientes{
   selector: 'app-asignacion',
   templateUrl: './asignacion.component.html',
   styleUrls: ['./asignacion.component.css'],
-  providers: [PlanesService, NutriService, PacienteService]
+  providers: [PlanesService, PacienteService]
 })
 export class AsignacionComponent implements OnInit {
   range = new FormGroup({

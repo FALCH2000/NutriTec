@@ -13,7 +13,7 @@ interface pacientesNoAsignados{
   selector: 'app-asociacion',
   templateUrl: './asociacion.component.html',
   styleUrls: ['./asociacion.component.css'],
-  providers: [PacienteService, NutriService]
+  providers: [PacienteService]
 })
 export class AsociacionComponent implements OnInit {
 

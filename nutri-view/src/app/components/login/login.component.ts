@@ -16,7 +16,7 @@ interface Nutricionista{
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [NutriService]
+  
 })
 export class LoginComponent implements OnInit {
   public notValidUser=false;

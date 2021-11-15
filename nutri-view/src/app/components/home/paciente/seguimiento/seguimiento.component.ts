@@ -58,7 +58,7 @@ export class SeguimientoComponent implements OnInit {
   }
   
   getPacientesDeNutri(){
-    var codigo= "N0002"; //TENGO QUE USAR EL CODIGO DEL NUTRICIONISTA ACTUAL
+    var codigo= "N0005"; //TENGO QUE USAR EL CODIGO DEL NUTRICIONISTA ACTUAL
     this._pacienteService.getPacientesByCodigo(codigo).subscribe(
       result => {
         var counter=0;
@@ -108,10 +108,15 @@ export class SeguimientoComponent implements OnInit {
     this.sendMensaje();
   }
   sendMensaje(){
+    var today = new Date();
+    var weekday = today.getDay();
+
+    console.log(weekday);
     var objetoMensaje= {
-      "codigo_nut":this._nutriService.nutricionista.codigo_nutricionista,
-      "cedula":this.paciente.cedula,
-      "ForoId": '',
+      //"codigo_nut":this._nutriService.nutricionista.codigo_nutricionista,
+      "codigo_nut": this._nutriService.nutricionista.codigo_nutricionista,
+      "cedula":this.paciente.cedula.toString(),
+      "ForoId": weekday.toString(),
       "mensaje": this.mensajeUsuario,
       "autor": "nutricionista"
     }
