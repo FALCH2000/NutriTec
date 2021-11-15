@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   getNutriUser(){
     var nutriEmail=(<HTMLInputElement>document.getElementById('username')).value;
-    console.log('username es: '+nutriEmail); 
+    console.log('username es: '+nutriEmail);
     this._nutriService.getNutricionistaByEmail(nutriEmail).subscribe(
       result=> {
         console.log("no se poe que"+result);
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           this.validarPassword(nutriEmail, result);
           this.notValidUser=false;
         }
-        
+
       },
       error=> {
         console.log("ERROR OBTENIENDO USUARIO\n"+<any> error)
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
           console.log("SUCCES");
           this._nutriService.setNutricionistaValues(nutriInfo);
           this.notValidPassword=false;
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home/inicio']);
         }else {
           this.notValidPassword=true;
         }

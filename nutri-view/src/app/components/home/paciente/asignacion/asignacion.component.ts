@@ -25,7 +25,7 @@ export class AsignacionComponent implements OnInit {
 
   public pacientesList:any=[]
   public planesList:any= [];
-  
+
   constructor(
     private _planesService:PlanesService,
     private _pacienteService:PacienteService,
@@ -37,13 +37,14 @@ export class AsignacionComponent implements OnInit {
     this.getPacientesDeNutri();
   }
   getPlanes(){
-    this._planesService.getPlanes().subscribe(
+    console.log(this._nutriService.nutricionista.codigo_nutricionista)
+    this._planesService.getPlanes(this._nutriService.nutricionista.codigo_nutricionista).subscribe(
       result => {
         var counter=0;
         while(result[counter]!=undefined){
           var auxiliar=result[counter];
           this.planesList.push(auxiliar.nombre);
-          
+
           counter++;
         }
       },
@@ -67,7 +68,7 @@ export class AsignacionComponent implements OnInit {
       },
       error => {
         console.log("Error "+ <any>error);
-      } 
+      }
     )
   }
 

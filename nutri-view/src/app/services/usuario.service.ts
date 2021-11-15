@@ -17,7 +17,7 @@ interface Nutricionista{
   tipo_cobro:string,
   rol:string,
   direccion:string,
-  foto:string 
+  foto:string
 }
 
 @Injectable({
@@ -43,7 +43,7 @@ export class NutriService {
     tipo_cobro:'',
     rol:'',
     direccion:'',
-    foto:'' 
+    foto:''
   }
 
   constructor(public _http: HttpClient
@@ -61,7 +61,7 @@ export class NutriService {
 
   /**
    * Setea los valores dentro del servicio para utilizarlo durante toda la ejecucion
-   * @param nutricionista el objeto con la información del nutricionista 
+   * @param nutricionista el objeto con la información del nutricionista
    */
   setNutricionistaValues(nutricionistaObject:any){
     this.nutricionista.nombre1= nutricionistaObject.nombre1;
@@ -84,10 +84,17 @@ export class NutriService {
    * Valida la contrasenna ingresada
    * @param email el email del usuario
    * @param password la contrasenna que se ingresa
-   * @returns el resultado true o false 
+   * @returns el resultado true o false
    */
   validarPassword(email:string, password:string){
     return this._http.get(this.url+ "api/usuario/validarusuario/"+ email+"/"+password+"/Nutricionista");
+  }
+
+  postNutricionista(nutriData: Object){
+    console.log(this.url+'api/producto/insert');
+    this._http.post(this.url+'api/usuario/insert', nutriData).subscribe(data => {
+    console.log(data);
+  });
   }
 
 }

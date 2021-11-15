@@ -1,7 +1,7 @@
 <body>
   <mat-toolbar class="myNavbar">
     <img class="logo-pop" src="../../../../assets/img/fruits.png">
-    <span>  NutriTEC Administradores</span>
+    <span>  Registri Nutricionistas</span>
     <span class="example-spacer"></span>
     <button  routerLink="login" mat-icon-button>
       <mat-icon >login</mat-icon>
@@ -126,7 +126,7 @@
       <mat-step>
         <ng-template matStepLabel>Finalizado</ng-template>
         <p>Completado. Desea proceder con el Registro de su Usuario?</p>
-        <button (click)="registrarNutricionista()" mat-raised-button>GUARDAR</button>
+        <button routerLink="/login" (click)="registrarNutricionista()" mat-raised-button>GUARDAR</button>
       </mat-step>
 </mat-stepper>
 

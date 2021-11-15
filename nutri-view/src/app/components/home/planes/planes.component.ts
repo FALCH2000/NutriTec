@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { PlanesService } from 'src/app/services/planes.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NutriService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-planes',
@@ -27,7 +28,8 @@ export class PlanesComponent implements OnInit {
    * */
   constructor(
     private _planesService: PlanesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _usuarioService: NutriService
   ) { }
 
 
@@ -50,7 +52,7 @@ export class PlanesComponent implements OnInit {
   * Metodo que carga los planes que existen en la base de datos y los muestra en la tabla
   * */
   cargarPlanes(){
-    this._planesService.getPlanes().subscribe(
+    this._planesService.getPlanes(this._usuarioService.nutricionista.codigo_nutricionista).subscribe(
       result => {
         result;
         var i = 0;

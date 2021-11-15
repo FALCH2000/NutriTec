@@ -13,8 +13,8 @@ export class PlanesService {
       this.url = "http://nutritecapi.azurewebsites.net/"
   }
 
-  getPlanes(): Observable<any> {
-    return this._http.get(this.url + 'api/planes/nut/N0002');
+  getPlanes(codigo_nutricionista: string): Observable<any> {
+    return this._http.get(this.url + 'api/planes/nut/'+codigo_nutricionista);
   }
 
 

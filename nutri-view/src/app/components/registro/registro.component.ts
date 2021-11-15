@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NutriService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-registro',
@@ -12,7 +13,8 @@ export class RegistroComponent implements OnInit {
   datosPagoForm: FormGroup;
   datosAccesoForm: FormGroup;
 
-  constructor(private fb: FormBuilder,) {
+  constructor(private fb: FormBuilder,
+              private _usuarioService: NutriService) {
     this.datosPersonalesForm = this.fb.group({
       nombre1: ['', Validators.required],
       nombre2: ['', Validators.required],
@@ -50,12 +52,11 @@ export class RegistroComponent implements OnInit {
       pass: this.datosAccesoForm.value.pass,
       email: this.datosAccesoForm.value.email,
       numero_tarjeta: Number(this.datosPagoForm.value.numeroTarjeta),
-      tipo_cobro: this.datosAccesoForm.value.tipoPago,
+      tipo_cobro: "Mensual",
       rol: "Nutricionista",
       direccion: this.datosPersonalesForm.value.direccion,
       foto: "url"
     }
-    console.log(nutricionista)
+    this._usuarioService.postNutricionista(nutricionista);
   }
-
 }
