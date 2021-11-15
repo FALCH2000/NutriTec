@@ -7,6 +7,10 @@ namespace APINutriTec.Model
 {
     public class Medida
     {
+        /**
+         * Clase para definir las medidas 
+         * @author Harold Espinoza
+         */
         public string fecha_ingreso { get; set; }
         public int cadera { get; set; }
         public int cintura { get; set; }

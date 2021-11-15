@@ -9,6 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using APINutriTec.Model;
 
+
+/*
+ * Controlador de pacientes
+ * @author Harold Espinoza 
+ * 
+ */
 namespace APINutriTec.Controllers
 {
     [Route("api/[controller]")]
@@ -21,6 +27,111 @@ namespace APINutriTec.Controllers
             cadenaConexion = "Server=tcp:bases-tec.database.windows.net,1433;Initial Catalog=NutriTECBD;Persist Security Info=False;User ID=hadmin;Password=marioNeta1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         }
 
+        /**
+         * Metodo de tipo Get que retorna un paciente por su numero de cedula 
+         * @param codigo del paciente solicitado
+         * @return paciente buscado
+         */
+        [HttpGet("get/{codigo}")]
+        public paciente GetPaciente(string codigo)
+        {
+            SqlDataReader reader = null;
+            SqlConnection myConnection = new SqlConnection();
+
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "GetPaciente";
+            sqlCmd.Parameters.AddWithValue("@cedula", codigo);
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+
+            paciente pas = new paciente();
+
+            while (reader.Read())
+            {
+
+                pas.nombre1 = reader.GetValue(0).ToString();
+                pas.nombre2 = reader.GetValue(1).ToString();
+                pas.apellido1 = reader.GetValue(2).ToString();
+                pas.apellido2 = reader.GetValue(3).ToString();
+                pas.cedula = (int)reader.GetValue(4);
+                pas.fecha_de_nacimiento = reader.GetValue(5).ToString();
+                pas.peso = (double)reader.GetValue(6);
+                pas.estado = reader.GetValue(7).ToString();
+                pas.edad = (int)reader.GetValue(8);
+                pas.pass = reader.GetValue(9).ToString();
+                pas.email = reader.GetValue(10).ToString();
+                pas.imc = (int)reader.GetValue(11);
+                pas.pais = reader.GetValue(12).ToString();
+                pas.codigo_nutricionista = reader.GetValue(13).ToString();
+
+
+            }
+            myConnection.Close();
+
+            return pas;
+
+        }
+
+
+        [HttpGet("email/{email}")]
+        public paciente GetPacienteXemail(string email)
+        {
+            SqlDataReader reader = null;
+            SqlConnection myConnection = new SqlConnection();
+
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "GetPacienteXEmail";
+            sqlCmd.Parameters.AddWithValue("@email", email);
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+
+            paciente pas = new paciente();
+
+            while (reader.Read())
+            {
+
+                pas.nombre1 = reader.GetValue(0).ToString();
+                pas.nombre2 = reader.GetValue(1).ToString();
+                pas.apellido1 = reader.GetValue(2).ToString();
+                pas.apellido2 = reader.GetValue(3).ToString();
+                pas.cedula = (int)reader.GetValue(4);
+                pas.fecha_de_nacimiento = reader.GetValue(5).ToString();
+                pas.peso = (double)reader.GetValue(6);
+                pas.estado = reader.GetValue(7).ToString();
+                pas.edad = (int)reader.GetValue(8);
+                pas.pass = reader.GetValue(9).ToString();
+                pas.email = reader.GetValue(10).ToString();
+                pas.imc = (int)reader.GetValue(11);
+                pas.pais = reader.GetValue(12).ToString();
+                pas.codigo_nutricionista = reader.GetValue(13).ToString();
+
+
+            }
+            myConnection.Close();
+
+            return pas;
+
+        }
+
+
+        /**
+         * Metodo de tipo Get que valida el inicio de secion de un paciente
+         * @param user email del usuario
+         * @param pwd password del usuario
+         * @return booleano con el resultado de la operacion
+         */
         [HttpGet("validar/{user}/{pwd}")]
         public async Task<bool> Validacion(string user, string pwd)
         {
@@ -63,7 +174,6 @@ namespace APINutriTec.Controllers
 
 
         }
-
 
         public static string Encriptar(string texto)
         {
@@ -139,7 +249,62 @@ namespace APINutriTec.Controllers
             return UTF8Encoding.UTF8.GetString(resultArray);
         }
 
+        /**
+         * Metodo de tipo Get que obtiene una lista de los pacientes que no tienen un nutricionista asignado
+         * @return lista de pacientes sin nutricionista
+         */
+        [HttpGet("libres")]
+        public List<paciente> PacienteSinNutri() 
+        {
+            SqlDataReader reader = null;
+            SqlConnection myConnection = new SqlConnection();
 
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "PacienteSinNutri";
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+
+            List<paciente> pacientes = new List<paciente>();
+
+            while (reader.Read())
+            {
+                paciente pas = new paciente();
+
+                pas.nombre1 = reader.GetValue(0).ToString();
+                pas.nombre2 = reader.GetValue(1).ToString();
+                pas.apellido1 = reader.GetValue(2).ToString();
+                pas.apellido2 = reader.GetValue(3).ToString();
+                pas.cedula = (int)reader.GetValue(4);
+                pas.fecha_de_nacimiento = reader.GetValue(5).ToString();
+                pas.peso = (double)reader.GetValue(6);
+                pas.estado = reader.GetValue(7).ToString();
+                pas.edad = (int)reader.GetValue(8);
+                pas.pass = reader.GetValue(9).ToString();
+                pas.email = reader.GetValue(10).ToString();
+                pas.imc = (int)reader.GetValue(11);
+                pas.pais = reader.GetValue(12).ToString();
+                pas.codigo_nutricionista = reader.GetValue(13).ToString();
+
+
+                pacientes.Add(pas);
+
+            }
+            myConnection.Close();
+
+            return pacientes;
+        }
+
+        /**
+         * Metodo de tipo Get que obtiene la lista de medidas segun su cedula
+         * @param cedula del paciente solicitado
+         * @return lista de medidas de ese paciente
+         */
         [HttpGet("medidas/{cedula}")]
         public List<Medida> GetPacienteMedidas(int cedula)
         {
@@ -185,6 +350,57 @@ namespace APINutriTec.Controllers
         }
 
 
+        [HttpGet("rangomedidas")]
+        public List<Medida> GetPacienteMedidasRango([FromBody] RangoMedida rango)
+        {
+            SqlDataReader reader = null;
+            SqlConnection myConnection = new SqlConnection();
+
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "GetRangoMedidas";
+            sqlCmd.Parameters.AddWithValue("@fecha_inicial", rango.fecha_inicio);
+            sqlCmd.Parameters.AddWithValue("@fecha_final", rango.fecha_final);
+            sqlCmd.Parameters.AddWithValue("@cedula_paciente", rango.cedula);
+
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+
+            List<Medida> medidas = new List<Medida>();
+
+            while (reader.Read())
+            {
+                Medida medida = new Medida();
+
+                medida.fecha_ingreso = reader.GetValue(0).ToString();
+                medida.cadera = (int)reader.GetValue(1);
+                medida.cintura = (int)reader.GetValue(2);
+                medida.cuello = (int)reader.GetValue(3);
+                medida.peso = (int)reader.GetValue(4);
+                medida.musculo = (int)reader.GetValue(5);
+                medida.grasa = (int)reader.GetValue(6);
+                medida.cedula_paciente = (int)reader.GetValue(7);
+
+
+                medidas.Add(medida);
+
+            }
+            myConnection.Close();
+
+            return medidas;
+
+        }
+
+
+        /**
+         * Metodo de tipo Post que ingresa unas nuevas medidas para el paciente
+         * @return resultado de la operacion
+         */
         [HttpPost("medida/insert")]
         public async Task<IActionResult> InsertMedida([FromBody]Medida medida) 
         {
@@ -220,6 +436,62 @@ namespace APINutriTec.Controllers
             return Created("created", created);
         }
 
+        /**
+         * Metodo de tipo Get que obtiene la lista de los consumos de un paciente segun su cedula
+         * @param cedula del paciente solicitado
+         * @return lista de consumos de ese paciente
+         */
+        [HttpGet("consumo/{cedula}")]
+        public List<ConsumoDiario> GetPacienteconsumos(int cedula)
+        {
+            SqlDataReader reader = null;
+            SqlConnection myConnection = new SqlConnection();
+
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "GetConsumosPaciente";
+            sqlCmd.Parameters.AddWithValue("@cedula", cedula);
+
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+
+            List<ConsumoDiario> consumos = new List<ConsumoDiario>();
+
+            while (reader.Read())
+            {
+                ConsumoDiario consumo = new ConsumoDiario();
+                consumo.fecha = reader.GetValue(0).ToString();
+                consumo.almuerzo = reader.GetValue(1).ToString();
+                consumo.cena = reader.GetValue(2).ToString();
+                consumo.desayuno = reader.GetValue(3).ToString();
+                consumo.merienda_manana = reader.GetValue(4).ToString();
+                consumo.merienda_tarde = reader.GetValue(5).ToString();
+                consumo.consumo_calorias = (int)reader.GetValue(6);
+                consumo.cedula_paciente = (int)reader.GetValue(7);
+
+
+
+
+
+                consumos.Add(consumo);
+
+            }
+            myConnection.Close();
+
+            return consumos;
+
+        }
+
+
+        /**
+         * Metodo de tipo Post que ingresa un nuevo consumo de un paciente
+         * @return codigo con resultado de la operacion
+         */
         [HttpPost("consumo/insert")]
         public async Task<IActionResult> InsertConsumo([FromBody] ConsumoDiario consumo)
         {
@@ -253,6 +525,64 @@ namespace APINutriTec.Controllers
 
 
             return Created("created", created);
+        }
+
+        /**
+         * Metodo de tipo Put que asigna un nutricionista a un paciente 
+         * @param cedula del paciente que se desea asosiar
+         * @param nutri codigo del nutricionista a asosiar
+         * @return codigo con el resultado de la operacion
+         */
+        [HttpPut("asignar/{cedula}/{nutri}")]
+        public async Task<IActionResult> AsignarNutri(int cedula, string nutri)
+        {
+
+            SqlConnection myConnection = new SqlConnection();
+
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "AsignarNutriAPaciente";
+            sqlCmd.Parameters.Add("@cedula_paciente", SqlDbType.VarChar, 50).Value = cedula;
+            sqlCmd.Parameters.Add("@codigo_nutri", SqlDbType.VarChar, 120).Value = nutri;
+     
+
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+            var created = sqlCmd.ExecuteNonQuery();
+            myConnection.Close();
+
+
+
+            return Ok();
+        }
+
+        /**
+         * Metodo de tipo Delete que desasocia un nutricionista de un paciente
+         * @param cedula del paciente que se desea desasosiar
+         * @return codigo con el resultado de la operacion
+         */
+        [HttpDelete("desligarnutri/{cedula}")]
+        public async Task<IActionResult> DesligarNutri(int cedula)
+        {
+            SqlConnection myConnection = new SqlConnection();
+
+            myConnection.ConnectionString = cadenaConexion;
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "DesligarNutricionista";
+            sqlCmd.Parameters.Add("@cedula_paciente", SqlDbType.VarChar, 50).Value = cedula;
+
+            sqlCmd.Connection = myConnection;
+            myConnection.Open();
+            var created = sqlCmd.ExecuteNonQuery();
+            myConnection.Close();
+
+            return NoContent();
         }
 
     }

@@ -7,6 +7,10 @@ namespace APINutriTec.Model
 {
     public class Producto
     {
+        /**
+         * Clase para definir los productos 
+         * @author Harold Espinoza
+         */
         public string codigo_de_barras { get; set; }
         public string descripcion { get; set; }
         public int tamano_porcion { get; set; }

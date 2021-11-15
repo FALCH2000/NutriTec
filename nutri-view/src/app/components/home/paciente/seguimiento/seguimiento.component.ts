@@ -58,7 +58,7 @@ export class SeguimientoComponent implements OnInit {
   }
   
   getPacientesDeNutri(){
-    var codigo= "N0005"; //TENGO QUE USAR EL CODIGO DEL NUTRICIONISTA ACTUAL
+    var codigo= this._nutriService.nutricionista.codigo_nutricionista;
     this._pacienteService.getPacientesByCodigo(codigo).subscribe(
       result => {
         var counter=0;

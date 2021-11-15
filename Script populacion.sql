@@ -27,37 +27,37 @@ VALUES('Roberto', 'Ramiro', 'Benavides', 'Arguello', 405670980, '11/04/1985', 24
        'Semanal', 'Nutricionista', 'El Coyol Alajuela', 'url');
 
 --Insert productos
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('CVA02092000', 'Queso Turrialba Dos Pinos', 65, 87, 12, 8, 34, 15, 9, 'en espera', 89);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('ABC24121997', 'Yogurt Griego Dos Pinos', 6, 7, 23, 38, 3, 5, 19, 'en espera', 76);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('FLC22244555', 'Brownie cero azucar', 67, 12, 24, 18, 45, 16, 8, 'en espera', 80);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('NBA12345678', 'Galleta Maria', 12, 24, 56, 16, 15, 16, 18, 'en espera', 60);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('EMC65423499', 'Jugo de Naranja 100', 22, 56, 47, 18, 52, 61, 82, 'en espera', 80);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('VDC12567777', 'Arroz Integral', 79, 14, 42, 13, 53, 6, 82, 'aprobado', 18);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('PCH02121965', 'Quinoa', 73, 12, 41, 11, 35, 66, 8, 'aprobado', 78);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('PMN6018415', 'Frijoles', 74, 122, 41, 13, 55, 61, 82, 'aprobado', 65);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('NWN6789041', 'Papaya', 10, 12, 2, 12, 15, 16, 82, 'aprobado', 90);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('AFG1165478', 'Banano', 16, 34, 1, 6, 12, 88, 23,'aprobado', 12);
 
-INSERT INTO producto(codigo_de_barras, descripcion, tamaño_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
+INSERT INTO producto(codigo_de_barras, descripcion, tamano_porcion, energia, grasa, sodio, carbohidrato, proteina, calcio, estado, hierro) 
 VALUES('DAC22451236', 'Aceite de Oliva', 7, 24, 18, 16, 5, 6, 8, 'aprobado', 8);
 
 --Insert de vitaminas

@@ -7,6 +7,10 @@ namespace APINutriTec.Model
 {
     public class ConsumoDiario
     {
+		/**
+         * Clase para definir el consumo diario
+         * @author Harold Espinoza
+         */
 		public string fecha { get; set; }
 		public string almuerzo { get; set; }
 		public string cena { get; set; }

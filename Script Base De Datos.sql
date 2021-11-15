@@ -26,7 +26,7 @@ CREATE TABLE Usuario (
 CREATE TABLE Producto (
   codigo_de_barras varchar(50) not null,
   descripcion varchar(500) not null,
-  tamaño_porcion integer not null,
+  tamano_porcion integer not null,
   energia integer not null,
   grasa integer not null,
   sodio integer not null,
@@ -58,12 +58,12 @@ CREATE TABLE Plan_Alimentacion (
 -- Tabla Consumo Diario
 
 CREATE TABLE ConsumoDiario (
-  fecha date not null,
-  almuerzo Varchar(250) not null,
-  cena Varchar(250) not null,
-  desayuno Varchar(250) not null,
-  merienda_m Varchar(250) not null,
-  merienda_t Varchar(250) not null,
+  fecha date,
+  almuerzo Varchar(250),
+  cena Varchar(250) ,
+  desayuno Varchar(250) ,
+  merienda_m Varchar(250) ,
+  merienda_t Varchar(250),
   consumo_calorias integer,
   cedula_paciente integer,
 
