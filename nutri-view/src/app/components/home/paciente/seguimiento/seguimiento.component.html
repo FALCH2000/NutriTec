@@ -51,11 +51,11 @@
               <div *ngIf="displayUsuario">
                 <h3 class="titulo">Foro con el usuario</h3>
                 <mat-form-field class="textarea" appearance="fill">
-                  <mat-label>Textarea</mat-label>
-                  <textarea matInput></textarea>
+                  <mat-label>Escribe aquí tu mensaje</mat-label>
+                  <textarea matInput #texto></textarea>
                 </mat-form-field>
                 <div class="button-container">
-                  <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                  <button (click)='getText(texto.value)' mat-fab color="primary" aria-label="Example icon button with a delete icon">
                     <mat-icon>send</mat-icon>
                   </button>
                 </div>
