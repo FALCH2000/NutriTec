@@ -1,17 +1,15 @@
-body{
-    background-color: #f5e3c8;
-}
+
 .container{
     padding-top: 20px;
-      
+
 }
 .main-container{
-    background-color: black; 
+
     margin-left: 10px;
     margin-right: 10px;
 }
 .mat-container{
-    margin-top: 50px; 
+    margin-top: 50px;
 }
 .mat-accordion{
     width: 100px;
@@ -19,10 +17,37 @@ body{
 
 .mat-button{
     background-color: transparent;
-    color: black;
+    color: tomato;
 }
 
 .mat-button:hover{
-    background-color: #dda551;
+    background-color: tomato;
     color: white;
+}
+
+.navBut{
+  background-color: tomato;
+  color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+ }
+
+.titulo{
+  color: tomato;
+  margin-top: 10px;
+}
+
+.myNavbar {
+  background: yellowgreen;
+  color: white;
+  margin-top: 10px;
+}
+
+button{
+  background-color: tomato;
+  margin-top: 10px;
+  margin: 10px;
+  color: white;
 }

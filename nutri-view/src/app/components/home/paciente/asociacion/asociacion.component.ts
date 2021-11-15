@@ -27,7 +27,7 @@ export class AsociacionComponent implements OnInit {
     this.getPacientesNoAsignados();
   }
   getPacientesNoAsignados(){
-    
+
     this._pacienteService.getPacientesDesocupados().subscribe(
       result => {
         var counter=0;
@@ -73,7 +73,7 @@ export class AsociacionComponent implements OnInit {
   }
 
   updatePacienteAsociar(infoUser:Object, cedula:number){
-    this._pacienteService.asignarNutricionista(infoUser, cedula, 
+    this._pacienteService.asignarNutricionista(infoUser, cedula,
       this._nutriService.nutricionista.codigo_nutricionista);
   }
 

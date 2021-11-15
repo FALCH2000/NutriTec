@@ -8,15 +8,19 @@
   </head>
 <body>
     <div class="container">
-        <h2>Asociacion de pacientes</h2>
-        <h3>Pacientes sin nutricionista asignado</h3>
+
+      <mat-toolbar class="myNavbar">
+        <span class="example-spacer">Asociación de Pacientes</span>
+        <button class="navBut" mat-button routerLink="/home/paciente/seguimiento">Seguimiento Pacientes</button>
+      </mat-toolbar>
+        <h3 class="titulo" >Pacientes sin nutricionista asignado</h3>
         <div class='mat-container'>
             <div class= "main-container">
                 <mat-accordion class="mat-accordion">
                 <mat-expansion-panel *ngFor="let value of lista">
                   <!-- Header del panel -->
                     <mat-expansion-panel-header>
-                        <p id= 'pacienteText'> Paciente: {{value.nombre1}} </p> 
+                        <p id= 'pacienteText'> Paciente: {{value.nombre1}} </p>
                     </mat-expansion-panel-header>
                   <!--Info dentro del panel-->
                   <h5>Información</h5>
@@ -26,12 +30,12 @@
                   <div>
                     <button mat-raised-button color="warn" (click)="asociar(value.cedula)" class="mat-button">Asignar Paciente</button>
                   </div>
-                  
+
                 </mat-expansion-panel>
             </mat-accordion>
             </div>
         </div>
-        
+
     </div>
 </body>
 

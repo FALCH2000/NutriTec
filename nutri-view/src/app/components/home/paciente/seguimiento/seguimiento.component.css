@@ -1,18 +1,15 @@
 body{
-    background-color: #f5e3c8;
     width: auto;
     margin: 0;
   padding: 0;
   min-height: 100vh;
   max-height: 500%;
-    
+
 }
 
 .info-container{
-    
+
     margin-top: 30px;
-    background-color: #EAEAEA;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     flex-direction: column;
 }
 
@@ -25,4 +22,31 @@ body{
 .textarea {
     width: 350px;
     margin-left: 20px;
+}
+
+.navBut{
+  background-color: tomato;
+  color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+ }
+
+.titulo{
+  color: tomato;
+  margin-top: 10px;
+}
+
+.myNavbar {
+  background: yellowgreen;
+  color: white;
+  margin-top: 10px;
+}
+
+button{
+  background-color: tomato;
+  margin-top: 10px;
+  margin: 10px;
+  color: white;
 }

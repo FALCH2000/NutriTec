@@ -22,7 +22,7 @@ export class ProductosService {
   }
 
   getProductos(): Observable<any> {
-    return this._http.get(this.url + 'api/producto');
+    return this._http.get(this.url + 'api/producto/estado/aprobado');
   }
 
   getProductosByCodigo(codigo: string): Observable<any> {
