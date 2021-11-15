@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
+import { NutriService } from 'src/app/services/usuario.service';
+import { PlanesService } from 'src/app/services/planes.service';
 
 @Component({
   selector: 'app-crear-plan',
@@ -41,6 +44,8 @@ export class CrearPlanComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _productosService: ProductosService,
+    private _usuarioService: NutriService,
+    private _planService: PlanesService,
     private router: Router,
     private aRoute: ActivatedRoute) {
     this.form = this.fb.group({
@@ -195,9 +200,16 @@ export class CrearPlanComponent implements OnInit {
   * Metodo que completa el nuevo plan a la base de datos
   * */
   agregarPlan(){
-    this.nombrePlan = this.form.value.nombre;
-    console.log(this.nombrePlan)
-    console.log(this.desayunoObjeto)
+    const plan = {
+      nombre: this.form.value.nombre,
+      desayuno: this.desayunoObjeto.producto,
+      merienda_manana: this.merienda1Objeto.producto,
+      almuerzo: this.almuerzoObjeto.producto,
+      merienda_tarde: this.merienda2Objeto.producto,
+      cena: this.cenaObjeto.producto,
+      nutricionista: this._usuarioService.nutricionista.codigo_nutricionista
+    }
+    this._planService.postPlanes(plan)
   }
 
 }

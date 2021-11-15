@@ -91,7 +91,6 @@ export class NutriService {
   }
 
   postNutricionista(nutriData: Object){
-    console.log(this.url+'api/producto/insert');
     this._http.post(this.url+'api/usuario/insert', nutriData).subscribe(data => {
     console.log(data);
   });
