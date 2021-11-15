@@ -18,5 +18,9 @@ export class PaginaComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  cargarCobro(){
+
+  }
 
 }

@@ -56,7 +56,8 @@ export class AsignacionComponent implements OnInit {
   }
 
   getPacientesDeNutri(){
-    var codigo= this._nutriService.nutricionista.codigo_nutricionista; //TENGO QUE USAR EL CODIGO DEL NUTRICIONISTA ACTUAL
+    console.log("Obtiene toda la caca");
+    var codigo= this._nutriService.nutricionista.codigo_nutricionista;
     this._pacienteService.getPacientesByCodigo(codigo).subscribe(
       result => {
         var counter=0;
@@ -65,6 +66,7 @@ export class AsignacionComponent implements OnInit {
           this.pacientesList.push(auxiliar.nombre1+" "+ auxiliar.nombre2);
           counter++;
         }
+        console.log(this.pacientesList);
       },
       error => {
         console.log("Error "+ <any>error);
