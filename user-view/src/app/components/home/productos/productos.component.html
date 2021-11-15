@@ -1,6 +1,6 @@
 <div class="container">
-  <mat-toolbar class="sectionTitle">
-      <span>{{titulo}}</span>
+  <mat-toolbar class="myNavbar">
+      <span class="example-spacer">{{titulo}}</span>
       <button mat-button routerLink="/home/productos/agregar-producto">AGREGAR PRODUCTO</button>
   </mat-toolbar>
 
@@ -16,32 +16,63 @@
             The actual rendered columns are set as a property on the row definition" -->
 
       <!-- Position Column -->
-      <ng-container matColumnDef="codigo_de_barras">
-        <th mat-header-cell *matHeaderCellDef> Código de Barras </th>
-        <td mat-cell *matCellDef="let element"> {{element.codigo_de_barras}} </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="descripcion">
-        <th mat-header-cell *matHeaderCellDef> Descripción </th>
-        <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="tamano_porcion">
-        <th mat-header-cell *matHeaderCellDef> Tamaño de Porción (gramos) </th>
-        <td mat-cell *matCellDef="let element"> {{element.tamano_porcion}} </td>
-      </ng-container>
-
-
-      <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
-            <a class="pointer" (click)="verProducto(element.codigo_de_barras)" style="color:rgb(30, 167, 221);" matTooltip="Editar Empleado">
-                <mat-icon>search</mat-icon>
-            </a>
-        </td>
+     <!-- Position Column -->
+     <ng-container matColumnDef="codigo_de_barras">
+      <th mat-header-cell *matHeaderCellDef> Código de Barras </th>
+      <td mat-cell *matCellDef="let element"> {{element.codigo_de_barras}} </td>
     </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef> Descripción </th>
+      <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="tamano_porcion">
+      <th mat-header-cell *matHeaderCellDef> Tamaño de Porción (gramos) </th>
+      <td mat-cell *matCellDef="let element"> {{element.tamano_porcion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="carbohidrato">
+      <th mat-header-cell *matHeaderCellDef> Carbohidrato (g) </th>
+      <td mat-cell *matCellDef="let element"> {{element.carbohidrato}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="proteina">
+      <th mat-header-cell *matHeaderCellDef> Proteína (g) </th>
+      <td mat-cell *matCellDef="let element"> {{element.calcio}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="grasa">
+      <th mat-header-cell *matHeaderCellDef> Grasa (g) </th>
+      <td mat-cell *matCellDef="let element"> {{element.grasa}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="energia">
+      <th mat-header-cell *matHeaderCellDef> Energía (kcal) </th>
+      <td mat-cell *matCellDef="let element"> {{element.calcio}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="sodio">
+      <th mat-header-cell *matHeaderCellDef> Sodio(g) </th>
+      <td mat-cell *matCellDef="let element"> {{element.sodio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hierro">
+      <th mat-header-cell *matHeaderCellDef> Hierro (mg) </th>
+      <td mat-cell *matCellDef="let element"> {{element.hierro}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="calcio">
+      <th mat-header-cell *matHeaderCellDef> Calcio (mg) </th>
+      <td mat-cell *matCellDef="let element"> {{element.calcio}} </td>
+    </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

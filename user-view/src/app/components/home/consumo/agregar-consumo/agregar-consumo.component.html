@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-toolbar class="sectionTitle">
+  <mat-toolbar class="myNavbar">
       <span>{{titulo}}</span>
   </mat-toolbar>
 
@@ -32,11 +32,11 @@
           <ng-container matColumnDef="acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
-              <button (click)="desayuno(element.codigo_de_barras, element.descripcion)" mat-button>D</button>
-              <button (click)="merienda1(element.codigo_de_barras,  element.descripcion)" mat-button>M</button>
-              <button (click)="almuerzo(element.codigo_de_barras,  element.descripcion)" mat-button>A</button>
-              <button (click)="merienda2(element.codigo_de_barras,  element.descripcion)" mat-button>M</button>
-              <button (click)="cena(element.codigo_de_barras,  element.descripcion)" mat-button>C</button>
+              <button class="meal" (click)="desayuno(element.codigo_de_barras, element.descripcion)" mat-button>D</button>
+              <button class="meal" (click)="merienda1(element.codigo_de_barras,  element.descripcion)" mat-button>M</button>
+              <button class="meal" (click)="almuerzo(element.codigo_de_barras,  element.descripcion)" mat-button>A</button>
+              <button class="meal" (click)="merienda2(element.codigo_de_barras,  element.descripcion)" mat-button>M</button>
+              <button class="meal" (click)="cena(element.codigo_de_barras,  element.descripcion)" mat-button>C</button>
             </td>
         </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -84,8 +84,8 @@
         </mat-grid-tile>
 
         <mat-grid-tile [colspan]="2" [rowspan]="1">
-            <button routerLink="/home/productos" [disabled]="form.invalid" mat-raised-button color="primary">GUARDAR</button>
-            <button  routerLink="/home/productos" mat-raised-button>VOLVER</button>
+            <button  routerLink="/home/productos" [disabled]="form.invalid" mat-raised-button color="primary">GUARDAR</button>
+            <button class="save" routerLink="/home/productos" mat-raised-button>VOLVER</button>
         </mat-grid-tile>
     </mat-grid-list>
 </form>

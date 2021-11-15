@@ -2,14 +2,29 @@
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 100px;
-  background: burlywood;
+  background: rgb(186, 212, 133);
 }
 
-.tolbar {
-  background: burlywood;
-  color:beige;
+.myNavbar {
+background: yellowgreen;
+color: white;
+}
+
+button{
+background-color: tomato;
+margin-top: 10px;
+margin: 10px;
+color: white;
 }
 
 body{
-  background-image: url(https://image.freepik.com/foto-gratis/diferentes-frutas-maduras-jugosas-enteras-aislado-piso-blanco_179666-420.jpg);
+  background-image: url(https://image.freepik.com/foto-gratis/fondo-acuarela-pintada-mano_24972-1198.jpg);
+}
+
+.logo-pop {
+width: 50px;
+}
+
+.example-spacer {
+flex: 1 1 auto;
 }

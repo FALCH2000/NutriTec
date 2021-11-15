@@ -24,7 +24,7 @@ export class ReporteComponent implements OnInit {
 
     doc.text("Reporte de Avance", 100, 20,{align:'center'});
     doc.setFontSize(10);
-    
+
     doc.setTextColor(150);
     doc.text("A continuación se presenta el reporte de las medias",93, 30, {align:'center'});
     doc.setTextColor(0);
@@ -36,5 +36,4 @@ export class ReporteComponent implements OnInit {
 
     this.router.navigate(['/home/inicio']);
   }
-
 }
