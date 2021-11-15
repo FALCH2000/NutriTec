@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
   }
 
   /** Valida la contrasenna ingresada por el usuario */
-  validarPassword(nutriEmail:string, nutriInfo: Object){
+  validarPassword(nutriEmail:string, nutriInfo: any){
     var userPassword=(<HTMLInputElement>document.getElementById('password')).value;
 
     this._userService.validarPassword(nutriEmail,userPassword).subscribe(
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
         console.log("resultado "+result);
         if(result==true){
           console.log("SUCCES");
-          this._userService.setNutricionistaValues(nutriInfo);
+          this._userService.setUserValues(nutriInfo);
           this.notValidPassword=false;
           this.router.navigate(['/home']);
         }else {

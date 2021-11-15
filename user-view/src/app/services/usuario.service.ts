@@ -71,7 +71,7 @@ export class UsuarioService {
    * Setea los valores dentro del servicio para utilizarlo durante toda la ejecucion
    * @param nutricionista el objeto con la información del nutricionista 
    */
-  setNutricionistaValues(usuarioObject:any){
+  setUserValues(usuarioObject:any){
     this.usuario.nombre1= usuarioObject.nombre1;
     this.usuario.nombre2= usuarioObject.nombre2;
     this.usuario.apellido1= usuarioObject.apellido1;

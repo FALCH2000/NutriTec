@@ -8,6 +8,7 @@ import { AgregarMedidaComponent } from './medidas/agregar-medida/agregar-medida.
 import { MedidasComponent } from './medidas/medidas.component';
 import { AgregarProductosComponent } from './productos/agregar-productos/agregar-productos.component';
 import { ProductosComponent } from './productos/productos.component';
+import { RecetasComponent } from './recetas/recetas.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, children:[
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'medidas', component:  MedidasComponent},
   { path: 'medidas/agregar-medida', component:  AgregarMedidaComponent},
   { path: 'consumo', component:  ConsumoComponent},
-  { path: 'consumo/agregar-consumo', component:  AgregarConsumoComponent}
+  { path: 'consumo/agregar-consumo', component:  AgregarConsumoComponent},
+  { path: 'receta', component: RecetasComponent}
   ]},
 ];
 
