@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PacienteService} from 'src/app/services/paciente.service'
+import { ForoService } from 'src/app/services/foro.service'
+import { NutriService} from 'src/app/services/usuario.service'
 
 interface Paciente{
   nombre:string,
@@ -15,7 +17,7 @@ interface Paciente{
   selector: 'app-seguimiento',
   templateUrl: './seguimiento.component.html',
   styleUrls: ['./seguimiento.component.css'],
-  providers: [PacienteService]
+  providers: [PacienteService, ForoService]
 })
 export class SeguimientoComponent implements OnInit {
   public pacientesList:any=[];
@@ -31,8 +33,12 @@ export class SeguimientoComponent implements OnInit {
     edad:0,
     pais:''
   }
+  public mensajeUsuario!:string;
+
   constructor(
-    private _pacienteService: PacienteService
+    private _pacienteService: PacienteService,
+    private _foroService: ForoService,
+    private _nutriService: NutriService
   ) { }
 
   ngOnInit(): void {
@@ -96,6 +102,20 @@ export class SeguimientoComponent implements OnInit {
         console.log("Error con el registro weon "+ <any>error)
       }
     )
+  }
+  getText(texto:string){
+    this.mensajeUsuario=texto;
+    this.sendMensaje();
+  }
+  sendMensaje(){
+    var objetoMensaje= {
+      "codigo_nut":this._nutriService.nutricionista.codigo_nutricionista,
+      "cedula":this.paciente.cedula,
+      "ForoId": '',
+      "mensaje": this.mensajeUsuario,
+      "autor": "nutricionista"
+    }
+    this._foroService.addMensaje(objetoMensaje);
   }
 
 }

@@ -22,6 +22,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
+import {MatTreeModule} from '@angular/material/tree'; 
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -51,7 +54,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatSlideToggleModule,
     MatRadioModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTreeModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
@@ -75,7 +81,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatSlideToggleModule,
     MatRadioModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTreeModule,
+    MatCheckboxModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

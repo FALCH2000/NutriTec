@@ -36,4 +36,7 @@ export class ProductosService {
       console.log(data);
     });
   }
+  getProductosAprobados(): Observable<any> {
+    return this._http.get(this.url+'api/producto/estado/aprobado');
+  }
 }
