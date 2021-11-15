@@ -2,7 +2,20 @@
   width: 80%;
 }
 
-.sectionTitle{
+.container {
+  WIDTH: 80%;
+  MARGIN: AUTO;
+}
+
+.myNavbar {
+  background: yellowgreen;
+  color: white;
   margin-top: 10px;
-  color: slateblue;
+}
+
+button{
+  background-color: tomato;
+  margin-top: 10px;
+  margin: 10px;
+  color: white;
 }

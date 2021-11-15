@@ -1,31 +1,36 @@
-body{
-    background-color: #f5e3c8;
+
+
+mat-form-field{
+  align-self: center;
 }
 
 .info-container{
-    margin-top: 40px;
-    background-color: #EAEAEA;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 10px;
+    background-color: rgb(206, 230, 159);
 }
 .btn {
-    margin-top: 50px;
     text-decoration: none;
     border: none;
     padding: 12px 40px;
     font-size: 16px;
     background-color: #fff;
-    color: #c98219;
+    color: tomato;
     border-radius: 5px;
-    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
     cursor: pointer;
     outline: none;
     transition: 0.2s all;
 }
 /* Adding transformation when the button is active */
-  
+
+button{
+  background-color: tomato;
+  margin-top: 10px;
+  margin: 10px;
+}
+
 .btn:active {
     transform: scale(0.98);
-    background-color: #c98219;
+    background-color: tomato;
     background: coral;
     /* Scaling button to 0.98 to its original size */
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
@@ -34,5 +39,15 @@ body{
 .btn:hover {
     transition: all 0.7 ease;
     -webkit-transition: all .7s;
-    background-color: #c98219;
+    background-color: tomato;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+ }
+
+ .myNavbar {
+  background: yellowgreen;
+  color: white;
+  margin-top: 10PX;
 }

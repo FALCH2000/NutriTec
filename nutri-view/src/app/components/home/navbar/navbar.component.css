@@ -1,9 +1,17 @@
-.example-spacer {
-    flex: 1 1 auto;
- }
+.logo-pop {
+  width: 50px;
+}
 
- 
-.tolbar {
-    background: burlywood;
-    color:beige;
+.example-spacer {
+ flex: 1 1 auto;
+}
+
+.myNavbar {
+  background: yellowgreen;
+  color: white;
+}
+
+button{
+  background-color: tomato;
+  margin: 10px;
 }
