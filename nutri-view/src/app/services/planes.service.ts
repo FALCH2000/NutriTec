@@ -10,7 +10,7 @@ export class PlanesService {
 
   constructor(public _http: HttpClient
     ){
-      this.url = "http://nutritecapi.azurewebsites.net/"
+      this.url = "https://nutritecapi.azurewebsites.net/"
   }
 
   getPlanes(codigo_nutricionista: string): Observable<any> {
