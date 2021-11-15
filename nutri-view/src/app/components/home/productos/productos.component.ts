@@ -7,6 +7,11 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
+
+/**
+ * Clase para el componente de Empleados
+ * @author Carmen Araya
+ * */
 export class ProductosComponent implements OnInit {
 
   titulo = 'Gestión de Productos'
@@ -16,19 +21,30 @@ export class ProductosComponent implements OnInit {
                                'energia', 'grasa', 'hierro', 'proteina', 'sodio'];
   dataSource!: MatTableDataSource<any>;
 
+    /**
+   * Metodo que constructor de la clase
+   * @param _empleadoService Servicio del Empleado
+   * */
   constructor(
     private _productosService: ProductosService
   ) { }
+
 
   ngOnInit(): void {
     this.cargarProductos()
   }
 
+  /**
+   * Metodo para realizar la busqueda por nombre de los elementos de la tabla
+  * */
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  /**
+  * Metodo que carga los productos que existen en la base de datos y los muestra en la tabla
+  * */
   cargarProductos(){
     this._productosService.getProductos().subscribe(
       result => {
@@ -51,11 +67,5 @@ export class ProductosComponent implements OnInit {
       });
   }
 
-  verProducto(codigo_de_barras: string){
-    console.log(codigo_de_barras)
-    this._productosService.getProductosByCodigo(codigo_de_barras).subscribe(data => {
-      console.log(data);
-    });
-  }
 
 }

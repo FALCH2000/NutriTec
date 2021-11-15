@@ -26,4 +26,9 @@ import { GenerarPDFComponent } from './reporte/generar-pdf/generar-pdf.component
     SharedModule
   ]
 })
+
+/**
+ * Clase para el modulo Home
+ * @author Carmen Araya
+ * */
 export class HomeModule { }

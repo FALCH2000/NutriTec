@@ -8,11 +8,23 @@ import { ProductosService } from 'src/app/services/productos.service';
   templateUrl: './agregar-producto.component.html',
   styleUrls: ['./agregar-producto.component.css']
 })
+
+/**
+ * Clase para el componente de Crear Empleado
+ * @author Carmen Araya
+ * */
 export class AgregarProductoComponent implements OnInit {
 
   form: FormGroup;
   titulo = "Agregar Producto";
 
+    /**
+   * Metodo que constructor de la clase
+   * @param FormBuilder formulario para crear un elemento
+   * @param   ProductosService Servicio de Productos
+   * @param router
+   * @param ActivatedRoute
+   * */
   constructor(
     private fb: FormBuilder,
     private _productosService: ProductosService,
@@ -32,9 +44,15 @@ export class AgregarProductoComponent implements OnInit {
     })
   }
 
+  /**
+  * Metodo que ejecuta otros metodos al correr la aplicación
+  * */
   ngOnInit(): void {
   }
 
+    /**
+  * Metodo que agrega un Producto nuevo a la base de datos
+  * */
   agregarProducto(){
     if (this.form.invalid){
       return;
