@@ -10,6 +10,10 @@ import retrofit2.http.PUT;
 import tarea1.tec.proyecto2.Modelos.RegistroM;
 
 public interface Registro {
+    /**
+     *
+     * Metodo para inserta productos al consumo diario
+     */
     @POST("/api/Receta/registro/insert")
     public Call<ArrayList<RegistroM>> env(@Body ArrayList<RegistroM> Body);
 }

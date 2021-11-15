@@ -29,12 +29,21 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     *
+     * @param view Tipo vista para ser detectado por el boton
+     */
     public void Ini_Principal(View view){
         EditText email = findViewById (R.id.username);
         EditText pass = findViewById (R.id.password);
         find (email.getText ().toString (), pass.getText ().toString ());
     }
+
+    /**
+     *
+     * @param user String Email Usuario
+     * @param pwd String password del usuario
+     */
 
     private void find(String user, String pwd) {
         EditText email = findViewById (R.id.username);

@@ -77,7 +77,7 @@ export class ProductosComponent implements OnInit {
     }
   }
 
-  cargarProductos(){
+  cargarProductos(){;
     this._productosService.getProductos().subscribe(
       result => {
         result;

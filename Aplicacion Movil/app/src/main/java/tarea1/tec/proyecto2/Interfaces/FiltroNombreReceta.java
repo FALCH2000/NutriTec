@@ -7,6 +7,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface FiltroNombreReceta {
+    /**
+     *Metodo para obtener receta por su nombre
+     */
     @GET("api/Receta/RecetaFiltroNombre/{email}/{nombre}")
     public Call<List<String>> find(@Path("email") String email, @Path("nombre") String nombre);
 }

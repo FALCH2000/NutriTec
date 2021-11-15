@@ -21,17 +21,31 @@ public class Menu extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param view Tipo vista para ser detectado por el boton
+     */
+
     public void Ini_Registro(View view){
         Intent principal = new Intent(this, Registro_Diario.class);
         principal.putExtra ("email", email);
         startActivity (principal);
     }
 
+    /**
+     *
+     * @param view Tipo vista para ser detectado por el boton
+     */
     public void Ini_Gestion(View view){
         Intent principal = new Intent(this, VerRecetas.class);
         principal.putExtra ("email", email);
         startActivity (principal);
     }
+
+    /**
+     *
+     * @param view Tipo vista para ser detectado por el boton
+     */
     public void animacion(View view){
         GifImageView imprin = findViewById (R.id.imageView2);
         GifImageView img2 = findViewById (R.id.imageView4);
