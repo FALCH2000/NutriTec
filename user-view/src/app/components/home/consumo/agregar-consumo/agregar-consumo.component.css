@@ -8,8 +8,21 @@ table {
   width: 090%;
 }
 
-.sectionTitle{
+.myNavbar {
+  background: yellowgreen;
+  color: white;
   margin-top: 10px;
+}
+
+.meal{
+  color: tomato;
+  background-color: whitesmoke;
+  margin-left: 2px;
+}
+
+.save{
+  background-color: tomato;
+  color: white;
 }
 
 .container {

@@ -1,0 +1,46 @@
+.container {
+  WIDTH: 80%;
+  height: 495px;
+  MARGIN: AUTO;
+  background-image: url(https://image.freepik.com/foto-gratis/fondo-acuarela-pintada-mano_24972-1198.jpg)
+}
+
+.myNavbar {
+  background: rgb(255, 136, 114);
+  color: white;
+  margin-top: 10px;
+}
+
+.example-card {
+  margin-top: 10px;
+  max-width: 400px;
+  margin-left: 20px;
+}
+
+.example-header-image {
+  background-image: url(https://image.freepik.com/foto-gratis/prospero-hombre-negocios-mantiene-manos-cruzadas-tiene-expresion-satisfecha_273609-16711.jpg);
+  background-size: 60px;
+}
+
+.titulo{
+  margin-left: 50px;
+}
+
+body{
+  background-image: url(https://t3.ftcdn.net/jpg/00/76/22/66/240_F_76226698_Q8Nuaz1ch8DFFAX37KKK2JfUgr1hvj3B.jpg)
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.block {
+  width: 50%;
+}
+
+.block2 {
+  width: 50%;
+  margin-top: 40px;
+}

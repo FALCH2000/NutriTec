@@ -13,7 +13,8 @@ export class ProductosComponent implements OnInit {
   public productos: any;
   listProductos: any[] = [];
   listAprobados: any[] = [];
-  displayedColumns: string[] = ['codigo_de_barras', 'descripcion', 'tamano_porcion', 'acciones'];
+  displayedColumns: string[] = ['codigo_de_barras', 'descripcion', 'tamano_porcion', 'calcio', 'carbohidrato',
+                               'energia', 'grasa', 'hierro', 'proteina', 'sodio'];
   dataSource!: MatTableDataSource<any>;
 
   constructor(
