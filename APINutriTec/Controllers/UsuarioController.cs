@@ -80,7 +80,10 @@ namespace APINutriTec.Controllers
             return nutricionistas;
         }
 
-
+        /**
+         * Metodo de tipo Get obtiene el registro de cobro para los nutricionistas
+         * @return Listado con el registro de cobro
+         */
         [HttpGet("registrocobro")]
         public List<RegistroCobro> GetRegistroCobro()
         {

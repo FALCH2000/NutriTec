@@ -7,6 +7,10 @@ namespace APINutriTec.Model
 {
     public class RegistroCobro
     {
+        /**
+         * Clase para definir el registro de cobro
+         * @author Harold Espinoza
+         */
         public string tipo_cobro { get; set; }
         public string codigo_nutricionista { get; set; }
         public string email { get; set; }

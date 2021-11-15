@@ -78,7 +78,11 @@ namespace APINutriTec.Controllers
 
         }
 
-
+        /**
+         * Metodo de tipo Get que retorna un paciente por su email
+         * @param email del paciente solicitado
+         * @return paciente buscado
+         */
         [HttpGet("email/{email}")]
         public paciente GetPacienteXemail(string email)
         {
@@ -175,6 +179,9 @@ namespace APINutriTec.Controllers
 
         }
 
+        /**
+         * Metodo que se encarga de hacer la encriptacion de la contrasena con MD5
+         */
         public static string Encriptar(string texto)
         {
             string key = "mikey";
@@ -349,7 +356,10 @@ namespace APINutriTec.Controllers
 
         }
 
-
+        /**
+         * Metodo de tipo Get que obtiene la lista de medidas de un paciente en un rango de fachas
+         * @return lista de medidas de ese paciente
+         */
         [HttpGet("rangomedidas")]
         public List<Medida> GetPacienteMedidasRango([FromBody] RangoMedida rango)
         {

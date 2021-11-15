@@ -506,7 +506,11 @@ namespace APINutriTec.Controllers
             return Created("Borrado", 1);
         }
 
-
+        /**
+         * Metodo de tipo Get obtiene la procion de una receta de un paciente
+         * @param nombre de la receta buscada
+         * @return Lista de productos
+         */
         [HttpGet("porcionReceta/{email}/{nombre}")]
         public async Task<string> Porcion(string email, string nombre)
         {

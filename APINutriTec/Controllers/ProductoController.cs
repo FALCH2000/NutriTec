@@ -77,7 +77,10 @@ namespace APINutriTec.Controllers
 
         }
 
-
+        /**
+         * Metodo de tipo Get que retorna los productos existentes
+         * @return Lista de productos almacenados
+         */
         [HttpGet("estado/{estado}")]
         public List<Producto> GetProductosXestado(string estado)
         {

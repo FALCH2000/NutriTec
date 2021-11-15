@@ -113,7 +113,10 @@ namespace APINutriTec.Controllers
             return plan;
         }
 
-
+        /**
+         * Metodo de tipo Post que inserta un nuevo plan de alimentacion
+         * @return codigo con el resultado de la operacion
+         */
         [HttpPost("insertplan")]
         public async Task<IActionResult> InsertPlan([FromBody] Plan plan)
         {
@@ -250,7 +253,10 @@ namespace APINutriTec.Controllers
             return Created("created",created);
         }
 
-        //agregar producto 
+        /**
+         * Metodo de tipo Post que inserta un nuevo producto a un plan de alimentacion
+         * @return booleano con el resultado de la operacion
+         */
         [HttpPost("NuevoProductoPlan/insert")]
         public async Task<IActionResult> InsertarNuevaProductoPlan([FromBody] List<AgregarProPlan> producto)
         {
