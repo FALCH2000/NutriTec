@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 
 /**
- * Clase para el componente de Empleados
+ * Clase para el componente de Productos
  * @author Carmen Araya
  * */
 export class ProductosComponent implements OnInit {
@@ -23,13 +23,16 @@ export class ProductosComponent implements OnInit {
 
     /**
    * Metodo que constructor de la clase
-   * @param _empleadoService Servicio del Empleado
+   * @param _productosService Servicio de Productos
    * */
   constructor(
     private _productosService: ProductosService
   ) { }
 
 
+  /**
+  * Metodo que ejecuta otros metodos al correr la aplicación
+  * */
   ngOnInit(): void {
     this.cargarProductos()
   }

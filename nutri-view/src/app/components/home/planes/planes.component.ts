@@ -9,21 +9,46 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./planes.component.css'],
   providers: [PlanesService]
 })
+
+/**
+ * Clase para el componente de Planes
+ * @author Carmen Araya
+ * */
 export class PlanesComponent implements OnInit {
 
   planesList: any[] = [];
   displayedColumns: string[] = ['nombre', 'nutricionista','acciones'];
   dataSource!: MatTableDataSource<any>;
 
+
+  /**
+   * Metodo que constructor de la clase
+   * @param _planesService Servicio de Planes
+   * */
   constructor(
     private _planesService: PlanesService,
     public dialog: MatDialog
   ) { }
 
+
+  /**
+  * Metodo que ejecuta otros metodos al correr la aplicación
+  * */
   ngOnInit(): void {
     this.cargarPlanes();
   }
 
+  /**
+   * Metodo para realizar la busqueda por nombre de los elementos de la tabla
+  * */
+   applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  /**
+  * Metodo que carga los planes que existen en la base de datos y los muestra en la tabla
+  * */
   cargarPlanes(){
     this._planesService.getPlanes().subscribe(
       result => {

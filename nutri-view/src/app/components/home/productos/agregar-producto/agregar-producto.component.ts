@@ -10,7 +10,7 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 
 /**
- * Clase para el componente de Crear Empleado
+ * Clase para el componente de Crear Productos
  * @author Carmen Araya
  * */
 export class AgregarProductoComponent implements OnInit {
@@ -21,7 +21,7 @@ export class AgregarProductoComponent implements OnInit {
     /**
    * Metodo que constructor de la clase
    * @param FormBuilder formulario para crear un elemento
-   * @param   ProductosService Servicio de Productos
+   * @param ProductosService Servicio de Productos
    * @param router
    * @param ActivatedRoute
    * */
