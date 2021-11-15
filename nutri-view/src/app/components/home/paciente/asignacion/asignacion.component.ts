@@ -15,7 +15,7 @@ interface pacientes{
   selector: 'app-asignacion',
   templateUrl: './asignacion.component.html',
   styleUrls: ['./asignacion.component.css'],
-  providers: [PlanesService, PacienteService]
+  providers: [PlanesService]
 })
 export class AsignacionComponent implements OnInit {
   range = new FormGroup({
@@ -56,7 +56,7 @@ export class AsignacionComponent implements OnInit {
   }
 
   getPacientesDeNutri(){
-    var codigo= "N0002"; //TENGO QUE USAR EL CODIGO DEL NUTRICIONISTA ACTUAL
+    var codigo= this._nutriService.nutricionista.codigo_nutricionista; //TENGO QUE USAR EL CODIGO DEL NUTRICIONISTA ACTUAL
     this._pacienteService.getPacientesByCodigo(codigo).subscribe(
       result => {
         var counter=0;

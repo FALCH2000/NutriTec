@@ -113,6 +113,7 @@ export class RecetasComponent implements OnInit, AfterViewInit {
         }); 
         counter++;
     }
+    
     this.crearReceta();
   }
 

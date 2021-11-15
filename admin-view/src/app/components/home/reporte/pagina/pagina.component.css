@@ -1,6 +1,4 @@
-body{
-    background-color: #c8f4f5;
-}
+
 
 .info-container{
     margin-top: 40px;
@@ -35,4 +33,7 @@ body{
     transition: all 0.7 ease;
     -webkit-transition: all .7s;
     background-color: #c98219;
+}
+.mat-elevation-z8{
+    width: 100%;
 }
