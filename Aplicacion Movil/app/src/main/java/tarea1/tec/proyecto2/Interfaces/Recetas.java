@@ -8,6 +8,10 @@ import retrofit2.http.Path;
 
 public interface Recetas {
 
+    /**
+     *
+     * Metodo para obtener recetas de un paciente
+     */
     @GET("api/Receta/RecetasPaciente/{email}")
     public Call<List<String>> find(@Path("email") String email);
 

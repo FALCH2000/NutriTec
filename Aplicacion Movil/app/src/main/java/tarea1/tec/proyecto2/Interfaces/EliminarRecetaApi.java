@@ -9,6 +9,10 @@ import tarea1.tec.proyecto2.Modelos.EliminarReceta;
 import tarea1.tec.proyecto2.Modelos.ProductosNuevoRecetas;
 
 public interface EliminarRecetaApi {
+    /**
+     *
+     * Metodo para eliminar una receta
+     */
 
     @POST("/api/Receta/delete")
     public Call<EliminarReceta> env(@Body EliminarReceta Body);

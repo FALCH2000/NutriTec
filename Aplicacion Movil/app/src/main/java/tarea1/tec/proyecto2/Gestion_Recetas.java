@@ -74,6 +74,9 @@ public class Gestion_Recetas extends AppCompatActivity {
         CargarProductos ();
     }
 
+    /**
+     * Carga productos de la receta
+     */
     public void CargarProductos(){
 
         ListView listviewProducto;
@@ -254,25 +257,39 @@ public class Gestion_Recetas extends AppCompatActivity {
     }
 
 
-
+    /**
+     *
+     * @param view Tipo vista para ser detectado por el boton
+     */
     public void ATRAS(View view){
         super.onBackPressed ();
     }
 
+    /**
+     *
+     * @param A Array con los nombres de productos disponibles
+     */
     public void lista(ArrayList<String> A){
         ListView listviewProducto;
         ListView listAgregado;
         listAgregado = findViewById (R.id.listAgregado);
         listviewProducto = findViewById (R.id.listProductos);
+
         int indice = 0;
-        while (agregado.size () != indice){
-            productos.remove (agregado.get (indice));
-            indice++;
-        }
 
         ArrayAdapter<String> adaptador = new ArrayAdapter<String> (this,android.R.layout.simple_list_item_1,productos);
 
         ArrayAdapter<String> adaptador2 = new ArrayAdapter<String> (this,android.R.layout.simple_list_item_1,agregado);
+
+
+        while (agregado.size () != indice){
+            productos.remove (agregado.get (indice));
+            productosDiponiblesBD.remove (agregado.get (indice));
+
+            indice++;
+        }
+
+        listviewProducto.setAdapter (adaptador);
 
 
 
@@ -294,15 +311,32 @@ public class Gestion_Recetas extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param A Array con los nombres de productos agregados
+     */
     public void lista2(ArrayList<String> A){
         ListView listviewProducto;
         ListView listAgregado;
         listAgregado = findViewById (R.id.listAgregado);
         listviewProducto = findViewById (R.id.listProductos);
 
+        int indice = 0;
+
         ArrayAdapter<String> adaptador = new ArrayAdapter<String> (this,android.R.layout.simple_list_item_1,productos);
 
         ArrayAdapter<String> adaptador2 = new ArrayAdapter<String> (this,android.R.layout.simple_list_item_1,agregado);
+
+
+
+        while (agregado.size () != indice){
+            productos.remove (agregado.get (indice));
+            productosDiponiblesBD.remove (agregado.get (indice));
+            indice++;
+        }
+
+        listviewProducto.setAdapter (adaptador);
+
 
 
 
@@ -325,6 +359,11 @@ public class Gestion_Recetas extends AppCompatActivity {
         });
 
     }
+
+    /**
+     *
+     * @param v Tipo vista para ser detectado por el boton
+     */
     public void GuardarBoton(View v){
         ListView listAgregado;
         listAgregado = findViewById (R.id.listAgregado);
@@ -375,7 +414,7 @@ public class Gestion_Recetas extends AppCompatActivity {
             }else{
                 Toast.makeText(Gestion_Recetas.this, "", Toast.LENGTH_SHORT).show();
             }
-        }else if(Proceso.equals ("editar")  && por.getText ().length () != 0 && listAgregado.getAdapter ().getCount () >= 1){
+        }else if(Proceso.equals ("editar")  && por.getText ().length () != 0){
             int indice = 0;
 
             Retrofit retrofit = new Retrofit.Builder().baseUrl(BASEURL)
@@ -396,6 +435,7 @@ public class Gestion_Recetas extends AppCompatActivity {
                         object.setPorcion (Integer.parseInt (por.getText ().toString ()));
                         object.setProducto (productosDiponiblesBD.get (indice));
                         datos1.add (object);
+
 
                     } catch (Exception e) {
                         e.printStackTrace ();
@@ -469,6 +509,10 @@ public class Gestion_Recetas extends AppCompatActivity {
 
         }
 
+    /**
+     *
+     * @param v Tipo vista para ser detectado por el boton
+     */
         public void EliminarReceta(View v){
     AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("Importante");

@@ -39,10 +39,18 @@ public class VerRecetas extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param view Tipo vista para ser detectado por el boton
+     */
+
     public void ATRAS(View view){
         super.onBackPressed ();
     }
 
+    /**
+     * Carga las recetas disponibles en la base de datos
+     */
     public void CargarRecetas(){
         ListView listRecetas;
         listRecetas = findViewById (R.id.ListRec);
@@ -101,6 +109,10 @@ public class VerRecetas extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param view Tipo vista para ser detectado por el boton
+     */
     public void NuevaReceta(View view){
         Intent principal = new Intent (VerRecetas.this, Gestion_Recetas.class);
         principal.putExtra ("email", email);
