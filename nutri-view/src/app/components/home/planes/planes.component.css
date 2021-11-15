@@ -11,6 +11,7 @@
  table {
   width: 100%;
   margin-top: 10px;
+  height:  300px;
 }
 
 .mat-form-field {
@@ -40,6 +41,6 @@ button{
  }
 
  .container {
-  WIDTH: 80%;
+  WIDTH: 90%;
   MARGIN: AUTO;
 }

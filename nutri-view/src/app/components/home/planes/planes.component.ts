@@ -18,7 +18,8 @@ import { NutriService } from 'src/app/services/usuario.service';
 export class PlanesComponent implements OnInit {
 
   planesList: any[] = [];
-  displayedColumns: string[] = ['nombre', 'nutricionista','acciones'];
+  displayedColumns: string[] = ['nombre','desayuno', 'merienda_manana',
+                                'almuerzo', 'merienda_tarde', 'cena'];
   dataSource!: MatTableDataSource<any>;
 
 
@@ -57,7 +58,8 @@ export class PlanesComponent implements OnInit {
         result;
         var i = 0;
         while(result[i] != undefined){
-          this.planesList.push({nombre:result[i].nombre, nutricionista: result[i].nutricionista});
+          this.planesList.push({nombre:result[i].nombre, desayuno: result[i].desayuno, merienda_manana:result[i].merienda_manana,
+            almuerzo: result[i].almuerzo, merienda_tarde: result[i].merienda_tarde, cena: result[i].cena });
           i++;
         }
         this.dataSource = new MatTableDataSource(this.planesList)
